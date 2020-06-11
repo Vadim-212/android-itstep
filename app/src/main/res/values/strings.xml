@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">StepEducation</string>
+    <string name="activity_main_textview_status_not_pressed">Not yet pressed!</string>
+    <string name="activity_main_button_change_textview_text">Press me!</string>
 </resources>
