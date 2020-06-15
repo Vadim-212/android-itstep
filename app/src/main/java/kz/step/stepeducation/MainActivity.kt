@@ -1,19 +1,18 @@
 package kz.step.stepeducation
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity() {
     var buttonAction: Button? = null
     var textviewStatus: TextView? = null
-    var textviewCounter: TextView? = null
+    var gotoStudentsActivityButton: Button? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,17 +24,18 @@ class MainActivity : AppCompatActivity() {
     fun initializeViews() {
         textviewStatus = findViewById(R.id.textview_activity_main_status)
         buttonAction = findViewById(R.id.button_activity_main_action)
-        textviewCounter = findViewById(R.id.textview_activity_main_counter)
+        gotoStudentsActivityButton = findViewById(R.id.button_activity_main_goto_students_activity)
     }
 
     fun initializeListeners() {
         buttonAction?.setOnClickListener(View.OnClickListener {
             textviewStatus?.setTextColor(ContextCompat.getColor(this, R.color.red))
         })
-    }
 
-    fun button1_onClick(view: View) {
-        val counter: Int = textviewCounter?.text.toString().toInt() + 1
-        textviewCounter?.text = counter.toString()
+        gotoStudentsActivityButton?.setOnClickListener((View.OnClickListener {
+            val intent = Intent(applicationContext, StudentsActivity::class.java)
+            // start your next activity
+            startActivity(intent)
+        }))
     }
 }

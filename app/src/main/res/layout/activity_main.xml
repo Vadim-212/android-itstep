@@ -22,14 +22,11 @@
         android:gravity="center"
         android:layout_gravity="center"/>
 
-    <TextView
-        android:id="@+id/textview_activity_main_counter"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:text="0"
-        android:textColor="@color/green"
-        android:textAlignment="center"
+    <Button
+        android:id="@+id/button_activity_main_goto_students_activity"
+        android:text="@string/activity_main_button_goto_students_activity_text"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
         android:gravity="center"
-        android:layout_marginTop="50dp"/>
-
+        android:layout_gravity="center"/>
 </LinearLayout>
