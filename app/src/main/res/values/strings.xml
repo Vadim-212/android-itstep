@@ -8,4 +8,13 @@
     <string name="activity_students_button_students_sort_random">Отсортировать рандомно</string>
     <string name="activity_main_button_open_camera">Камера</string>
     <string name="activity_main_button_start_call">Звонок</string>
+    <string name="activity_data1_button_goto_text">Перейти к Activity 2</string>
+    <string name="activity_data2_textview_datatext">Переданный параметр:</string>
+    <string name="activity_data2_textview_data_noparameter">Нет параметра</string>
+    <string name="activity_main_button_goto_activity1">Перейти к Activity 1</string>
+    <string name="activity_photo_button_make_photo">Сделать фото</string>
+    <string name="activity_main_button_goto_activity_photo">Перейти к Photo Activity</string>
+    <string name="activity_main_button_goto_activity_test">Перейти к Test Activity</string>
+    <string name="activity_test_textview_question">Вопрос</string>
+    <string name="activity_test_buttons_answer">Ответ</string>
 </resources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:context=".DataActivity2">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/activity_data2_textview_datatext"
+        android:gravity="center"
+        android:layout_marginTop="100dp"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/textview_activity_data2_data"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:text="@string/activity_data2_textview_data_noparameter"/>
+
+</LinearLayout>

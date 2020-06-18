@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_new_round"
@@ -13,6 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_new_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".TestActivity"></activity>
+        <activity android:name=".PhotoActivity" />
+        <activity android:name=".DataActivity2" />
+        <activity android:name=".DataActivity1" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,7 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".StudentsActivity"></activity>
+        <activity android:name=".StudentsActivity" />
     </application>
 
 </manifest>

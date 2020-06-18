@@ -12,6 +12,10 @@ import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.google.firebase.crashlytics.CrashlyticsRegistrar
+import com.google.firebase.crashlytics.FirebaseCrashlytics
+import com.google.firebase.crashlytics.internal.common.CrashlyticsCore
+import com.google.firebase.crashlytics.internal.model.CrashlyticsReport
 
 
 class MainActivity : AppCompatActivity() {
@@ -20,6 +24,9 @@ class MainActivity : AppCompatActivity() {
     var gotoStudentsActivityButton: Button? = null
     var openCameraButton: Button? = null
     var startCallButton: Button? = null
+    var gotoActivity1Button: Button? = null
+    var gotoActivityPhotoButton: Button? = null
+    var gotoActivityTestButton: Button? = null
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +42,9 @@ class MainActivity : AppCompatActivity() {
         gotoStudentsActivityButton = findViewById(R.id.button_activity_main_goto_students_activity)
         openCameraButton = findViewById(R.id.button_activity_main_open_camera)
         startCallButton = findViewById(R.id.button_activity_main_start_call)
+        gotoActivity1Button = findViewById(R.id.button_activity_main_goto_activity1)
+        gotoActivityPhotoButton = findViewById(R.id.button_activity_main_goto_activity_photo)
+        gotoActivityTestButton = findViewById(R.id.button_activity_main_goto_activity_test)
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -64,6 +74,21 @@ class MainActivity : AppCompatActivity() {
             } else {
                 requestPermissions(Array<String>(1){android.Manifest.permission.CALL_PHONE}, 101)
             }
+        }
+
+        gotoActivity1Button?.setOnClickListener {
+            val intent = Intent(this, DataActivity1::class.java)
+            startActivity(intent)
+        }
+
+        gotoActivityPhotoButton?.setOnClickListener {
+            val intent = Intent(this, PhotoActivity::class.java)
+            startActivity(intent)
+        }
+
+        gotoActivityTestButton?.setOnClickListener {
+            val intent = Intent(this, TestActivity::class.java)
+            startActivity(intent)
         }
     }
 }

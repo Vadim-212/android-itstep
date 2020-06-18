@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "606775195497",
+    "firebase_url": "https://androidstepeducation.firebaseio.com",
+    "project_id": "androidstepeducation",
+    "storage_bucket": "androidstepeducation.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:606775195497:android:95ab6c19f62ffc43422ff8",
+        "android_client_info": {
+          "package_name": "kz.step.stepeducation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "606775195497-oa31u0d969pq06o72j4gdtt8kvb1hb0e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqSy7j56tWjcxE0ZwdpwxqfXySpvR14Sc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "606775195497-oa31u0d969pq06o72j4gdtt8kvb1hb0e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
