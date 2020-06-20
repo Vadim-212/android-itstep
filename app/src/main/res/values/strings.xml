@@ -17,4 +17,10 @@
     <string name="activity_main_button_goto_activity_test">Перейти к Test Activity</string>
     <string name="activity_test_textview_question">Вопрос</string>
     <string name="activity_test_buttons_answer">Ответ</string>
+    <string name="activity_main_button_goto_activity_login">Перейти к Login Activity</string>
+    <string name="activity_login_edittext_login_hint">Логин</string>
+    <string name="activity_login_edittext_password_hint">Пароль</string>
+    <string name="activity_login_button_login">Войти</string>
+    <string name="activity_login_button_hide_views">Скрыть все элементы</string>
+    <string name="activity_main_button_goto_activity_shopping_list">Перейти к Shopping List Activity</string>
 </resources>

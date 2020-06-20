@@ -27,6 +27,8 @@ class MainActivity : AppCompatActivity() {
     var gotoActivity1Button: Button? = null
     var gotoActivityPhotoButton: Button? = null
     var gotoActivityTestButton: Button? = null
+    var gotoActivityLoginButton: Button? = null
+    var gotoShoppingListActivityButton: Button? = null
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,6 +47,8 @@ class MainActivity : AppCompatActivity() {
         gotoActivity1Button = findViewById(R.id.button_activity_main_goto_activity1)
         gotoActivityPhotoButton = findViewById(R.id.button_activity_main_goto_activity_photo)
         gotoActivityTestButton = findViewById(R.id.button_activity_main_goto_activity_test)
+        gotoActivityLoginButton = findViewById(R.id.button_activity_main_goto_activity_login)
+        gotoShoppingListActivityButton = findViewById(R.id.button_activity_main_goto_activity_shopping_list)
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -88,6 +92,16 @@ class MainActivity : AppCompatActivity() {
 
         gotoActivityTestButton?.setOnClickListener {
             val intent = Intent(this, TestActivity::class.java)
+            startActivity(intent)
+        }
+
+        gotoActivityLoginButton?.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+
+        gotoShoppingListActivityButton?.setOnClickListener {
+            val intent = Intent(this, ShoppingListActivity::class.java)
             startActivity(intent)
         }
     }
