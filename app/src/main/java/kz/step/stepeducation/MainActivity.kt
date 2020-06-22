@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
     var gotoActivityTestButton: Button? = null
     var gotoActivityLoginButton: Button? = null
     var gotoShoppingListActivityButton: Button? = null
+    var gotoApiVersionActivity: Button? = null
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,18 +50,19 @@ class MainActivity : AppCompatActivity() {
         gotoActivityTestButton = findViewById(R.id.button_activity_main_goto_activity_test)
         gotoActivityLoginButton = findViewById(R.id.button_activity_main_goto_activity_login)
         gotoShoppingListActivityButton = findViewById(R.id.button_activity_main_goto_activity_shopping_list)
+        gotoApiVersionActivity = findViewById(R.id.button_activity_main_goto_activity_api_version)
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
     fun initializeListeners() {
-        buttonAction?.setOnClickListener(View.OnClickListener {
+        buttonAction?.setOnClickListener {
             textviewStatus?.setTextColor(ContextCompat.getColor(this, R.color.red))
-        })
+        }
 
-        gotoStudentsActivityButton?.setOnClickListener((View.OnClickListener {
+        gotoStudentsActivityButton?.setOnClickListener {
             val intent = Intent(applicationContext, StudentsActivity::class.java)
             startActivity(intent)
-        }))
+        }
 
         openCameraButton?.setOnClickListener {
             if(checkSelfPermission(android.Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
@@ -102,6 +104,11 @@ class MainActivity : AppCompatActivity() {
 
         gotoShoppingListActivityButton?.setOnClickListener {
             val intent = Intent(this, ShoppingListActivity::class.java)
+            startActivity(intent)
+        }
+
+        gotoApiVersionActivity?.setOnClickListener {
+            val intent = Intent(this, APIVersionActivity::class.java)
             startActivity(intent)
         }
     }

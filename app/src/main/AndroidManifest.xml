@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_new_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ShoppingListActivity"></activity>
+        <activity android:name=".APIVersionActivity"/>
+        <activity android:name=".ShoppingListActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".TestActivity" />
         <activity android:name=".PhotoActivity" />

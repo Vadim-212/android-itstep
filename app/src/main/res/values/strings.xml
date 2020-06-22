@@ -23,4 +23,5 @@
     <string name="activity_login_button_login">Войти</string>
     <string name="activity_login_button_hide_views">Скрыть все элементы</string>
     <string name="activity_main_button_goto_activity_shopping_list">Перейти к Shopping List Activity</string>
+    <string name="activity_main_button_goto_activity_api_version">Перейти к API Version Activity</string>
 </resources>
