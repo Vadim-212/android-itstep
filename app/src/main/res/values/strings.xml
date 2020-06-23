@@ -24,4 +24,10 @@
     <string name="activity_login_button_hide_views">Скрыть все элементы</string>
     <string name="activity_main_button_goto_activity_shopping_list">Перейти к Shopping List Activity</string>
     <string name="activity_main_button_goto_activity_api_version">Перейти к API Version Activity</string>
+    <string name="activity_whatsapp_button_send_message">Hello Friend</string>
+    <string name="activity_main_button_goto_activity_whatsapp">Перейти к Whatsapp Activity</string>
+    <string name="activity_new_login_edittext_login_hint">Login</string>
+    <string name="activity_new_login_edittext_password_hint">Password</string>
+    <string name="activity_new_login_button_enter">Enter</string>
+    <string name="activity_main_button_goto_activity_new_login">Перейти к New Login Activity</string>
 </resources>

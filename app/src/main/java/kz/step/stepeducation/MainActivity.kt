@@ -30,6 +30,8 @@ class MainActivity : AppCompatActivity() {
     var gotoActivityLoginButton: Button? = null
     var gotoShoppingListActivityButton: Button? = null
     var gotoApiVersionActivity: Button? = null
+    var gotoWhatsappActivity: Button? = null
+    var gotoNewLoginActivity: Button? = null
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,6 +53,8 @@ class MainActivity : AppCompatActivity() {
         gotoActivityLoginButton = findViewById(R.id.button_activity_main_goto_activity_login)
         gotoShoppingListActivityButton = findViewById(R.id.button_activity_main_goto_activity_shopping_list)
         gotoApiVersionActivity = findViewById(R.id.button_activity_main_goto_activity_api_version)
+        gotoWhatsappActivity = findViewById(R.id.button_activity_main_goto_activity_whatsapp)
+        gotoNewLoginActivity = findViewById(R.id.button_activity_main_goto_activity_new_login)
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -109,6 +113,16 @@ class MainActivity : AppCompatActivity() {
 
         gotoApiVersionActivity?.setOnClickListener {
             val intent = Intent(this, APIVersionActivity::class.java)
+            startActivity(intent)
+        }
+
+        gotoWhatsappActivity?.setOnClickListener {
+            val intent = Intent(this, WhatsappActivity::class.java)
+            startActivity(intent)
+        }
+
+        gotoNewLoginActivity?.setOnClickListener {
+            val intent = Intent(this, NewLoginActivity::class.java)
             startActivity(intent)
         }
     }
