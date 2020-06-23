@@ -6,27 +6,32 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     tools:context=".StudentsActivity">
 
-    <TextView
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="45dp"-->
+<!--        android:text="@string/activity_students_textview_students_text"-->
+<!--        android:textSize="20sp"-->
+<!--        android:gravity="center"/>-->
+
+<!--    <Button-->
+<!--        android:id="@+id/button_activity_students_sort_byname"-->
+<!--        android:layout_width="230dp"-->
+<!--        android:layout_height="45dp"-->
+<!--        android:text="@string/activity_students_button_students_sort_byname"/>-->
+
+<!--    <Button-->
+<!--        android:id="@+id/button_activity_students_sort_random"-->
+<!--        android:layout_width="230dp"-->
+<!--        android:layout_height="45dp"-->
+<!--        android:text="@string/activity_students_button_students_sort_random" />-->
+
+<!--    <ListView-->
+<!--        android:id="@+id/listview_activity_students_list"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"/>-->
+
+    <RelativeLayout
+        android:id="@+id/relativelayout_activity_students_fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:text="@string/activity_students_textview_students_text"
-        android:textSize="20sp"
-        android:gravity="center"/>
-
-    <Button
-        android:id="@+id/button_activity_students_sort_byname"
-        android:layout_width="230dp"
-        android:layout_height="45dp"
-        android:text="@string/activity_students_button_students_sort_byname"/>
-
-    <Button
-        android:id="@+id/button_activity_students_sort_random"
-        android:layout_width="230dp"
-        android:layout_height="45dp"
-        android:text="@string/activity_students_button_students_sort_random" />
-
-    <ListView
-        android:id="@+id/listview_activity_students_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"/>
 </LinearLayout>
