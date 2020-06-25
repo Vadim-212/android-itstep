@@ -56,8 +56,8 @@ class StudentsFragment : Fragment() {
     }
 
     fun initializeData(){
-        students.add(Student("Vasya", "Good Student"))
-        students.add(Student("John", "Bad Student"))
-        students.add(Student("Log", "Average Student"))
+        students.add(Student("Vasya", "Good Student", ""))
+        students.add(Student("John", "Bad Student", "Group 1"))
+        students.add(Student("Log", "Average Student", "Group 1"))
     }
 }
