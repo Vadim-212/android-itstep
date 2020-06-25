@@ -1,8 +1,9 @@
-package kz.step.stepeducation
+package kz.step.stepeducation.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import kz.step.stepeducation.R
 
 class DataActivity2 : AppCompatActivity() {
     var dataTextView: TextView? = null

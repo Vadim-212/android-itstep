@@ -13,23 +13,23 @@
         android:roundIcon="@mipmap/ic_launcher_new_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NewLoginActivity"/>
-        <activity android:name=".WhatsappActivity" />
-        <activity android:name=".APIVersionActivity" />
-        <activity android:name=".ShoppingListActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".TestActivity" />
-        <activity android:name=".PhotoActivity" />
-        <activity android:name=".DataActivity2" />
-        <activity android:name=".DataActivity1" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".activity.NewLoginActivity"/>
+        <activity android:name=".activity.WhatsappActivity" />
+        <activity android:name=".activity.APIVersionActivity" />
+        <activity android:name=".activity.ShoppingListActivity" />
+        <activity android:name=".activity.LoginActivity" />
+        <activity android:name=".activity.TestActivity" />
+        <activity android:name=".activity.PhotoActivity" />
+        <activity android:name=".activity.DataActivity2" />
+        <activity android:name=".activity.DataActivity1" />
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".StudentsActivity" />
+        <activity android:name=".activity.StudentsActivity" />
     </application>
 
 </manifest>

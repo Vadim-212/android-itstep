@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    tools:context=".DataActivity1">
+    tools:context=".activity.DataActivity1">
 
     <Button
         android:id="@+id/button_activity_data1_goto_activity"

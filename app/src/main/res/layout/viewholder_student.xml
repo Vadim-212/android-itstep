@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:text="@string/viewholder_student_name_header"
+        android:textSize="14sp"
+        android:layout_margin="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/textview_viewholder_student_name"
+        android:textColor="@color/color_black"
+        android:textSize="14sp"
+        tools:text="Вася Пупкин"
+        android:layout_margin="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:text="@string/viewholder_student_description_header"
+        android:layout_width="wrap_content"
+        android:textSize="14sp"
+        android:layout_margin="5dp"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/textview_viewholder_student_description"
+        android:textColor="@color/color_black"
+        android:textSize="14sp"
+        android:layout_margin="5dp"
+        tools:text="Хороший студент"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

@@ -1,4 +1,4 @@
-package kz.step.stepeducation
+package kz.step.stepeducation.activity
 
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -10,6 +10,7 @@ import android.provider.MediaStore
 import android.widget.Button
 import android.widget.ImageView
 import androidx.annotation.RequiresApi
+import kz.step.stepeducation.R
 
 class PhotoActivity : AppCompatActivity() {
     var imageView: ImageView? = null

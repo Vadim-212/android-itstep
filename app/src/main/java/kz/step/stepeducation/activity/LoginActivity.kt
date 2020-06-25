@@ -1,4 +1,4 @@
-package kz.step.stepeducation
+package kz.step.stepeducation.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import kz.step.stepeducation.R
 
 class LoginActivity : AppCompatActivity() {
     private val LOGIN = "icarus"

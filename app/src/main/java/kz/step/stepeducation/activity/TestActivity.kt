@@ -1,14 +1,14 @@
-package kz.step.stepeducation
+package kz.step.stepeducation.activity
 
 import android.app.AlertDialog
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Gravity
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import kz.step.stepeducation.R
 import java.util.*
 import kotlin.collections.ArrayList
 

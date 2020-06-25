@@ -1,4 +1,4 @@
-package kz.step.stepeducation
+package kz.step.stepeducation.activity
 
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -6,16 +6,12 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
-import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.google.firebase.crashlytics.CrashlyticsRegistrar
-import com.google.firebase.crashlytics.FirebaseCrashlytics
-import com.google.firebase.crashlytics.internal.common.CrashlyticsCore
-import com.google.firebase.crashlytics.internal.model.CrashlyticsReport
+import kz.step.stepeducation.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -60,7 +56,9 @@ class MainActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.M)
     fun initializeListeners() {
         buttonAction?.setOnClickListener {
-            textviewStatus?.setTextColor(ContextCompat.getColor(this, R.color.red))
+            textviewStatus?.setTextColor(ContextCompat.getColor(this,
+                R.color.red
+            ))
         }
 
         gotoStudentsActivityButton?.setOnClickListener {

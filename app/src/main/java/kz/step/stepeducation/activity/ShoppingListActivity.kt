@@ -1,4 +1,4 @@
-package kz.step.stepeducation
+package kz.step.stepeducation.activity
 
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.LinearLayout
-import java.util.*
+import kz.step.stepeducation.R
 import kotlin.collections.ArrayList
 import kotlin.random.Random
 

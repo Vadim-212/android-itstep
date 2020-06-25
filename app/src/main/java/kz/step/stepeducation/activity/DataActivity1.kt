@@ -1,9 +1,10 @@
-package kz.step.stepeducation
+package kz.step.stepeducation.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import kz.step.stepeducation.R
 
 class DataActivity1 : AppCompatActivity() {
     var gotoActivity2Button: Button? = null

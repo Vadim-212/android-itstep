@@ -1,9 +1,10 @@
-package kz.step.stepeducation
+package kz.step.stepeducation.activity
 
 import android.os.Build
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import kz.step.stepeducation.R
 
 class APIVersionActivity : AppCompatActivity() {
     val deviceApiVersion = Build.VERSION.SDK_INT

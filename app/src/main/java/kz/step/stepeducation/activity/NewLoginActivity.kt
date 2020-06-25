@@ -1,14 +1,13 @@
-package kz.step.stepeducation
+package kz.step.stepeducation.activity
 
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
+import kz.step.stepeducation.R
 
 class NewLoginActivity : AppCompatActivity() {
     var loginEditText: EditText? = null

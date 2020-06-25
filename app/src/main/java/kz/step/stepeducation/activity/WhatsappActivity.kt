@@ -1,4 +1,4 @@
-package kz.step.stepeducation
+package kz.step.stepeducation.activity
 
 import android.content.ActivityNotFoundException
 import android.content.Intent
@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
+import kz.step.stepeducation.R
 
 class WhatsappActivity : AppCompatActivity() {
     var sendMessageButton: Button? = null
