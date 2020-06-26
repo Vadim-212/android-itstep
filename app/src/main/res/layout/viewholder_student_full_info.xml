@@ -7,14 +7,14 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:text="@string/viewholder_student_with_group_name_header"
+        android:text="@string/viewholder_student_full_info_name_header"
         android:textSize="14sp"
         android:layout_margin="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
     <TextView
-        android:id="@+id/textview_viewholder_student_with_group_name"
+        android:id="@+id/textview_viewholder_student_full_info_name"
         android:textColor="@color/color_black"
         android:textSize="14sp"
         tools:text="Вася Пупкин"
@@ -22,15 +22,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@color/color_gray" />
+
     <TextView
-        android:text="@string/viewholder_student_with_group_description_header"
+        android:text="@string/viewholder_student_full_info_description_header"
         android:layout_width="wrap_content"
         android:textSize="14sp"
         android:layout_margin="5dp"
         android:layout_height="wrap_content"/>
 
     <TextView
-        android:id="@+id/textview_viewholder_student_with_group_description"
+        android:id="@+id/textview_viewholder_student_full_info_description"
         android:textColor="@color/color_black"
         android:textSize="14sp"
         android:layout_margin="5dp"
@@ -38,19 +43,50 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@color/color_gray" />
+
     <TextView
-        android:text="@string/viewholder_student_with_group_group_header"
+        android:text="@string/viewholder_student_full_info_group_header"
         android:layout_width="wrap_content"
         android:textSize="14sp"
         android:layout_margin="5dp"
         android:layout_height="wrap_content"/>
 
     <TextView
-        android:id="@+id/textview_viewholder_student_with_group_group"
+        android:id="@+id/textview_viewholder_student_full_info_group"
         android:textColor="@color/color_black"
         android:textSize="14sp"
         android:layout_margin="5dp"
         tools:text="Группа 1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@color/color_gray" />
+
+    <TextView
+        android:text="@string/viewholder_student_full_info_mark_header"
+        android:layout_width="wrap_content"
+        android:textSize="14sp"
+        android:layout_margin="5dp"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/textview_viewholder_student_full_info_mark"
+        android:textColor="@color/color_black"
+        android:textSize="14sp"
+        android:layout_margin="5dp"
+        tools:text="10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@color/color_darker_gray" />
 </LinearLayout>

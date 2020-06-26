@@ -10,15 +10,21 @@ import androidx.fragment.app.Fragment
 import kz.step.stepeducation.R
 import kz.step.stepeducation.fragments.StudentsFragment
 import kz.step.stepeducation.StudentsSortUseCase
+import kz.step.stepeducation.adapter.StudentsAdapter
+import kz.step.stepeducation.data.Student
 
 class StudentsActivity : AppCompatActivity() {
-    var buttonSortByName: Button? = null
-    var buttonSortRandom: Button? = null
-    var listViewStudents: ListView? = null
-    var studentsList: List<String> = listOf("Иван", "Дмитрий", "Владимир", "Александр", "Борис")
-    var studentsSortUseCase: StudentsSortUseCase =
-        StudentsSortUseCase()
+    //var buttonSortByName: Button? = null
+    //var buttonSortRandom: Button? = null
+    //var listViewStudents: ListView? = null
+    //var studentsList: List<String> = listOf("Иван", "Дмитрий", "Владимир", "Александр", "Борис")
+    //var studentsSortUseCase: StudentsSortUseCase =
+    //    StudentsSortUseCase()
+
     var currentFragment: Fragment? = null
+    //var studentsList: ArrayList<Student> = ArrayList()
+    //var studentsAdapter: StudentsAdapter? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,23 +44,24 @@ class StudentsActivity : AppCompatActivity() {
         //listViewStudents = findViewById(R.id.listview_activity_students_list)
     }
 
-    @SuppressLint("ResourceType")
-    fun initializeStudentsList() {
-        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, studentsList)
-        listViewStudents?.adapter = adapter
-    }
+//    @SuppressLint("ResourceType")
+//    fun initializeStudentsList() {
+//        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, studentsList)
+//        listViewStudents?.adapter = adapter
+//    }
+//
+//    private fun initializeListeners() {
+//        buttonSortByName?.setOnClickListener {
+//            studentsList = studentsSortUseCase.initiateSortStudentsByName(studentsList)
+//            initializeStudentsList()
+//        }
+//
+//        buttonSortRandom?.setOnClickListener {
+//            studentsList = studentsSortUseCase.initiateSortStudentsRandom(studentsList)
+//            initializeStudentsList()
+//        }
+//    }
 
-    private fun initializeListeners() {
-        buttonSortByName?.setOnClickListener {
-            studentsList = studentsSortUseCase.initiateSortStudentsByName(studentsList)
-            initializeStudentsList()
-        }
-
-        buttonSortRandom?.setOnClickListener {
-            studentsList = studentsSortUseCase.initiateSortStudentsRandom(studentsList)
-            initializeStudentsList()
-        }
-    }
 
     fun initializeDefaultFragment(){
         if(currentFragment == null){

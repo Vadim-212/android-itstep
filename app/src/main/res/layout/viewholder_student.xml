@@ -22,6 +22,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@color/color_gray" />
+
     <TextView
         android:text="@string/viewholder_student_description_header"
         android:layout_width="wrap_content"
@@ -37,5 +42,10 @@
         tools:text="Хороший студент"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@color/color_darker_gray" />
 
 </LinearLayout>

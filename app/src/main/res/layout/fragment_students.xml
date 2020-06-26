@@ -5,6 +5,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Button android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_fragment_students_filtration_by_name"
+        android:text="@string/fragment_students_button_filtration_by_name" />
+
+    <Button android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_fragment_students_filtration_by_mark"
+        android:text="@string/fragment_students_button_filtration_by_mark" />
+
+    <Button android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_fragment_students_random_filtration"
+        android:text="@string/fragment_students_button_random_filtration" />
+
+    <EditText
+        android:id="@+id/edittext_fragment_students_search_query"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/fragment_students_edittext_search_query"/>
+
+    <Button
+        android:id="@+id/button_fragment_students_clear_query"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fragment_students_button_clear_query" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_fragment_students"
         android:layout_width="match_parent"

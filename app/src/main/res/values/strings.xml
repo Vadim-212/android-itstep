@@ -32,7 +32,13 @@
     <string name="activity_main_button_goto_activity_new_login">Перейти к New Login Activity</string>
     <string name="viewholder_student_name_header">Имя студента: </string>
     <string name="viewholder_student_description_header">Описание студента: </string>
-    <string name="viewholder_student_with_group_name_header">Имя студента: </string>
-    <string name="viewholder_student_with_group_description_header">Описание студента: </string>
-    <string name="viewholder_student_with_group_group_header">Группа студента: </string>
+    <string name="viewholder_student_full_info_name_header">Имя студента: </string>
+    <string name="viewholder_student_full_info_description_header">Описание студента: </string>
+    <string name="viewholder_student_full_info_group_header">Группа студента: </string>
+    <string name="viewholder_student_full_info_mark_header">Средняя оценка студента: </string>
+    <string name="fragment_students_button_filtration_by_name">Фильтрация по имени</string>
+    <string name="fragment_students_button_filtration_by_mark">Фильтрация по оценке</string>
+    <string name="fragment_students_button_random_filtration">Фильтрация в случайном порядке</string>
+    <string name="fragment_students_button_clear_query">Очистить</string>
+    <string name="fragment_students_edittext_search_query">Поиск студентов</string>
 </resources>
