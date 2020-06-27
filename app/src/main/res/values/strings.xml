@@ -41,4 +41,5 @@
     <string name="fragment_students_button_random_filtration">Фильтрация в случайном порядке</string>
     <string name="fragment_students_button_clear_query">Очистить</string>
     <string name="fragment_students_edittext_search_query">Поиск студентов</string>
+    <string name="activity_main_button_call_crash">Вызвать краш приложения</string>
 </resources>

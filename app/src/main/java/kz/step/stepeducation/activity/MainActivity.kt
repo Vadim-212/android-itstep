@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
     var gotoApiVersionActivity: Button? = null
     var gotoWhatsappActivity: Button? = null
     var gotoNewLoginActivity: Button? = null
+    var callAppCrashButton: Button? = null
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,6 +52,7 @@ class MainActivity : AppCompatActivity() {
         gotoApiVersionActivity = findViewById(R.id.button_activity_main_goto_activity_api_version)
         gotoWhatsappActivity = findViewById(R.id.button_activity_main_goto_activity_whatsapp)
         gotoNewLoginActivity = findViewById(R.id.button_activity_main_goto_activity_new_login)
+        callAppCrashButton = findViewById(R.id.button_activity_main_call_crash)
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -121,6 +123,11 @@ class MainActivity : AppCompatActivity() {
 
         gotoNewLoginActivity?.setOnClickListener {
             val intent = Intent(this, NewLoginActivity::class.java)
+            startActivity(intent)
+        }
+
+        callAppCrashButton?.setOnClickListener {
+            val intent = Intent(this, StudentsSortUseCase::class.java) // Вызов класса, который не является activity
             startActivity(intent)
         }
     }
