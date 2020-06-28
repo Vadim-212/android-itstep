@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
     var gotoWhatsappActivity: Button? = null
     var gotoNewLoginActivity: Button? = null
     var callAppCrashButton: Button? = null
+    var gotoSpeechRecognizerActivity: Button? = null
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,6 +54,7 @@ class MainActivity : AppCompatActivity() {
         gotoWhatsappActivity = findViewById(R.id.button_activity_main_goto_activity_whatsapp)
         gotoNewLoginActivity = findViewById(R.id.button_activity_main_goto_activity_new_login)
         callAppCrashButton = findViewById(R.id.button_activity_main_call_crash)
+        gotoSpeechRecognizerActivity = findViewById(R.id.button_activity_main_goto_activity_speech_recognizer)
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -128,6 +130,11 @@ class MainActivity : AppCompatActivity() {
 
         callAppCrashButton?.setOnClickListener {
             val intent = Intent(this, StudentsSortUseCase::class.java) // Вызов класса, который не является activity
+            startActivity(intent)
+        }
+
+        gotoSpeechRecognizerActivity?.setOnClickListener {
+            val intent = Intent(this, SpeechRecognizerActivity::class.java) // Вызов класса, который не является activity
             startActivity(intent)
         }
     }

@@ -42,4 +42,6 @@
     <string name="fragment_students_button_clear_query">Очистить</string>
     <string name="fragment_students_edittext_search_query">Поиск студентов</string>
     <string name="activity_main_button_call_crash">Вызвать краш приложения</string>
+    <string name="activity_main_button_goto_activity_speech_recognizer">Перейти к Speech Recognizer Activity</string>
+    <string name="activity_speech_recognizer_button_start_recognize">Начать распознавание речи</string>
 </resources>
