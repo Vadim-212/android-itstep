@@ -3,9 +3,11 @@ package kz.step.stepeducation.fragments
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_students.*
@@ -34,12 +36,15 @@ class StudentsFragment : Fragment() {
             container,
             false)
 
+        return rootView
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         initializeData()
         initializeLayoutManager()
         initializeAdapter()
         initializeListeners()
-
-        return rootView
     }
 
     fun initializeListeners() {
@@ -75,21 +80,46 @@ class StudentsFragment : Fragment() {
             filteredStudentsList.addAll(students)
             studentsAdapter?.notifyDataSetChanged()
         }
+
+        button_fragment_students_top_three_by_mark?.setOnClickListener {
+            filteredStudentsList.clear()
+            filteredStudentsList.addAll(students)
+            filteredStudentsList.addAll(getTop3StudentsByMark(filteredStudentsList))
+            studentsAdapter?.notifyDataSetChanged()
+        }
     }
 
-    fun initializeLayoutManager(){
+    fun initializeLayoutManager() {
         recyclerview_fragment_students?.layoutManager = LinearLayoutManager(context)
     }
 
-    fun initializeAdapter(){
+    fun initializeAdapter() {
         studentsAdapter = StudentsAdapter(context, filteredStudentsList)
         recyclerview_fragment_students?.adapter = studentsAdapter
     }
 
-    fun initializeData(){
+    fun initializeData() {
         students.add(Student("Vasya", "Bad Student", "Group 1", 10F))
         students.add(Student("John", "Good Student", "Group 1", 11.5F))
         students.add(Student("Log", "Average Student", "Group 2", 11F))
         filteredStudentsList.addAll(students)
+    }
+
+    fun getTop3StudentsByMark(studentsList: ArrayList<Student>): ArrayList<Student> {
+        val top3StudentsByMark: ArrayList<Student> = ArrayList()
+        var topStudent: Student
+
+        for (i: Int in 0 until 3) {
+            topStudent = studentsList.first()
+            for (student in studentsList) {
+                if(student.mark > topStudent.mark) {
+                    topStudent = student
+                }
+            }
+            top3StudentsByMark.add(topStudent)
+            studentsList.remove(topStudent)
+        }
+
+        return top3StudentsByMark
     }
 }

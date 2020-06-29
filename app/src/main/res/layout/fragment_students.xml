@@ -20,6 +20,11 @@
         android:id="@+id/button_fragment_students_random_filtration"
         android:text="@string/fragment_students_button_random_filtration" />
 
+    <Button android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_fragment_students_top_three_by_mark"
+        android:text="@string/fragment_students_button_top_three_by_mark" />
+
     <EditText
         android:id="@+id/edittext_fragment_students_search_query"
         android:layout_width="match_parent"

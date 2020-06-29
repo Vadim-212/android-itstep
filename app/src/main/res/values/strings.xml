@@ -50,5 +50,6 @@
     <string name="activity_main_button_goto_activity_user_registration">Перейти к User Registration Activity</string>
     <string name="activity_registered_user_info_edittext_first_name_hint">Имя</string>
     <string name="activity_registered_user_info_edittext_surname_hint">Фамилия</string>
+    <string name="fragment_students_button_top_three_by_mark">3 лучших студента по оценке</string>
 
 </resources>
