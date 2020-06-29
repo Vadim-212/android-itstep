@@ -136,6 +136,14 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:text="@string/activity_main_button_goto_activity_speech_recognizer"/>
+
+            <Button
+                android:id="@+id/button_activity_main_goto_activity_user_registration"
+                android:layout_width="150dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/activity_main_button_goto_activity_user_registration"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

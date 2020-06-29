@@ -44,4 +44,11 @@
     <string name="activity_main_button_call_crash">Вызвать краш приложения</string>
     <string name="activity_main_button_goto_activity_speech_recognizer">Перейти к Speech Recognizer Activity</string>
     <string name="activity_speech_recognizer_button_start_recognize">Начать распознавание речи</string>
+    <string name="activity_user_registration_edittext_first_name_hint">Имя</string>
+    <string name="activity_user_registration_edittext_surname_hint">Фамилия</string>
+    <string name="activity_user_registration_button_fill_info_text">Заполнить данные</string>
+    <string name="activity_main_button_goto_activity_user_registration">Перейти к User Registration Activity</string>
+    <string name="activity_registered_user_info_edittext_first_name_hint">Имя</string>
+    <string name="activity_registered_user_info_edittext_surname_hint">Фамилия</string>
+
 </resources>

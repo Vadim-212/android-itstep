@@ -13,7 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_new_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.SpeechRecognizerActivity"/>
+        <activity android:name=".activity.RegisteredUserInfoActivity"/>
+        <activity android:name=".activity.UserRegistrationActivity" />
+        <activity android:name=".activity.SpeechRecognizerActivity" />
         <activity android:name=".activity.NewLoginActivity" />
         <activity android:name=".activity.WhatsappActivity" />
         <activity android:name=".activity.APIVersionActivity" />

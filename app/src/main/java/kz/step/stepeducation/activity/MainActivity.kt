@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
     var gotoNewLoginActivity: Button? = null
     var callAppCrashButton: Button? = null
     var gotoSpeechRecognizerActivity: Button? = null
+    var gotoUserRegistrationActivity: Button? = null
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,6 +56,7 @@ class MainActivity : AppCompatActivity() {
         gotoNewLoginActivity = findViewById(R.id.button_activity_main_goto_activity_new_login)
         callAppCrashButton = findViewById(R.id.button_activity_main_call_crash)
         gotoSpeechRecognizerActivity = findViewById(R.id.button_activity_main_goto_activity_speech_recognizer)
+        gotoUserRegistrationActivity = findViewById(R.id.button_activity_main_goto_activity_user_registration)
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -134,7 +136,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         gotoSpeechRecognizerActivity?.setOnClickListener {
-            val intent = Intent(this, SpeechRecognizerActivity::class.java) // Вызов класса, который не является activity
+            val intent = Intent(this, SpeechRecognizerActivity::class.java)
+            startActivity(intent)
+        }
+
+        gotoUserRegistrationActivity?.setOnClickListener {
+            val intent = Intent(this, UserRegistrationActivity::class.java)
             startActivity(intent)
         }
     }
