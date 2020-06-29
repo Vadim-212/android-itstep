@@ -9,22 +9,16 @@ import android.graphics.drawable.BitmapDrawable
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_user_registration.*
 import kz.step.stepeducation.R
 import java.io.ByteArrayOutputStream
 import java.io.IOException
 
 
 class UserRegistrationActivity : AppCompatActivity() {
-    var selfieImageView: ImageView? = null
-    var firstNameEditText: EditText? = null
-    var surnameEditText: EditText? = null
-    var fillInfoButton: Button? = null
     private var cameraStubBitmap: Bitmap? = null
     private val REQUEST_IMAGE_CAPTURED = 1
 
@@ -38,21 +32,16 @@ class UserRegistrationActivity : AppCompatActivity() {
     }
 
     fun initializeViews() {
-        selfieImageView = findViewById(R.id.imageview_activity_user_registration_user_selfie)
-        firstNameEditText = findViewById(R.id.edittext_activity_user_registration_user_first_name)
-        surnameEditText = findViewById(R.id.edittext_activity_user_registration_user_surname)
-        fillInfoButton = findViewById(R.id.button_activity_user_registration_fill_info)
-
         cameraStubBitmap = getBitmapFromAssets("camera_stub_image.png")
         if(cameraStubBitmap != null) {
-            selfieImageView?.setImageBitmap(cameraStubBitmap)
+            imageview_activity_user_registration_user_selfie?.setImageBitmap(cameraStubBitmap)
         }
 
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
     fun initializeListeners() {
-        selfieImageView?.setOnClickListener {
+        imageview_activity_user_registration_user_selfie?.setOnClickListener {
             if(checkSelfPermission(android.Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
                 val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
                 startActivityForResult(cameraIntent, REQUEST_IMAGE_CAPTURED)
@@ -61,27 +50,27 @@ class UserRegistrationActivity : AppCompatActivity() {
             }
         }
 
-        fillInfoButton?.setOnClickListener {
-            val bitmapDrawable = selfieImageView?.drawable as BitmapDrawable
+        button_activity_user_registration_fill_info?.setOnClickListener {
+            val bitmapDrawable = imageview_activity_user_registration_user_selfie?.drawable as BitmapDrawable
             val bitmap = bitmapDrawable.bitmap
 
             if(bitmap.sameAs(cameraStubBitmap)) {
                 Toast.makeText(this, "Невозможно заполнить данные\nИзображение не заполнено!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            if(firstNameEditText?.text.isNullOrEmpty()) {
+            if(edittext_activity_user_registration_user_first_name?.text.isNullOrEmpty()) {
                 Toast.makeText(this, "Невозможно заполнить данные\nИмя не заполнено!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            if(surnameEditText?.text.isNullOrEmpty()) {
+            if(edittext_activity_user_registration_user_surname?.text.isNullOrEmpty()) {
                 Toast.makeText(this, "Невозможно заполнить данные\nФамилия не заполнена!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
             val intent = Intent(this, RegisteredUserInfoActivity::class.java)
-            intent.putExtra("userSelfie", drawableToByteArray(selfieImageView?.drawable as BitmapDrawable))
-            intent.putExtra("userFirstName", firstNameEditText?.text.toString())
-            intent.putExtra("userSurname", surnameEditText?.text.toString())
+            intent.putExtra("userSelfie", drawableToByteArray(imageview_activity_user_registration_user_selfie?.drawable as BitmapDrawable))
+            intent.putExtra("userFirstName", edittext_activity_user_registration_user_first_name?.text.toString())
+            intent.putExtra("userSurname", edittext_activity_user_registration_user_surname?.text.toString())
             startActivity(intent)
         }
     }
@@ -92,7 +81,7 @@ class UserRegistrationActivity : AppCompatActivity() {
             REQUEST_IMAGE_CAPTURED -> {
                 if(resultCode == Activity.RESULT_OK) {
                     val imageBitmap = data?.extras?.get("data") as Bitmap
-                    selfieImageView?.setImageBitmap(imageBitmap)
+                    imageview_activity_user_registration_user_selfie?.setImageBitmap(imageBitmap)
                 }
             }
         }

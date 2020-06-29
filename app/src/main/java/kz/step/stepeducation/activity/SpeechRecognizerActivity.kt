@@ -3,36 +3,26 @@ package kz.step.stepeducation.activity
 import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Intent
-import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.RecognizerIntent
-import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_speech_recognizer.*
 import kz.step.stepeducation.R
 import java.util.*
 
 class SpeechRecognizerActivity : AppCompatActivity() {
-    var recognizeButton: Button? = null
-    var recognizedTextTextView: TextView? = null
     private val REQUEST_CODE_SPEECH_RECOGNIZER = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_speech_recognizer)
 
-        initializeViews()
         initializeListeners()
     }
 
-    fun initializeViews() {
-        recognizeButton = findViewById(R.id.button_activity_speech_recognizer_recognize)
-        recognizedTextTextView = findViewById(R.id.textview_activity_speech_recognizer_recognized_text)
-    }
-
     fun initializeListeners() {
-        recognizeButton?.setOnClickListener {
+        button_activity_speech_recognizer_recognize?.setOnClickListener {
             startSpeechRecognize()
         }
     }
@@ -57,7 +47,7 @@ class SpeechRecognizerActivity : AppCompatActivity() {
                     val result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
                     if (!result.isNullOrEmpty()) {
                         val recognizedText = result[0]
-                        recognizedTextTextView?.setText(recognizedText)
+                        textview_activity_speech_recognizer_recognized_text?.setText(recognizedText)
                     }
                 }
             }

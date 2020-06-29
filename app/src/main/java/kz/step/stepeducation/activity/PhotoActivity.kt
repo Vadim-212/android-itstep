@@ -7,32 +7,23 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
-import android.widget.Button
-import android.widget.ImageView
 import androidx.annotation.RequiresApi
+import kotlinx.android.synthetic.main.activity_photo.*
 import kz.step.stepeducation.R
 
 class PhotoActivity : AppCompatActivity() {
-    var imageView: ImageView? = null
-    var takePhotoButton: Button? = null
     val REQUEST_IMAGE_CAPTURE = 1
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_photo)
-        initializeViews()
         initializeListeners()
-    }
-
-    fun initializeViews() {
-        imageView = findViewById(R.id.imageview_activity_photo_image)
-        takePhotoButton = findViewById(R.id.button_activity_photo_take_image)
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
     fun initializeListeners() {
-        takePhotoButton!!.setOnClickListener {
+        button_activity_photo_take_image!!.setOnClickListener {
             if(checkSelfPermission(android.Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
                 val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
                 startActivityForResult(cameraIntent, 1)
@@ -46,7 +37,7 @@ class PhotoActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             val imageBitmap = data?.extras?.get("data") as Bitmap
-            imageView?.setImageBitmap(imageBitmap)
+            imageview_activity_photo_image?.setImageBitmap(imageBitmap)
         }
     }
 }

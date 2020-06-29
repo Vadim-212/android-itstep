@@ -6,14 +6,14 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.LinearLayout
+import kotlinx.android.synthetic.main.activity_shopping_list.*
 import kz.step.stepeducation.R
 import kotlin.collections.ArrayList
 import kotlin.random.Random
 
 class ShoppingListActivity : AppCompatActivity() {
-    val CHECKBOX_COUNT = 15
-    var layout: LinearLayout? = null
     var checkButton: Button? = null
+    val CHECKBOX_COUNT = 15
     val checkboxList: ArrayList<CheckBox> = ArrayList()
     val productsList: ArrayList<String> = arrayListOf("Хлеб", "Молоко", "Яйца", "Сливочное масло", "Подсолнечное масло",
                                                       "Кефир", "Сметана", "Творог", "Сыр", "Колбаса",
@@ -30,7 +30,6 @@ class ShoppingListActivity : AppCompatActivity() {
     }
 
     fun initializeViews() {
-        layout = findViewById(R.id.layout_activity_shopping_list)
         checkButton = Button(this)
 
         var checkbox: CheckBox
@@ -42,15 +41,15 @@ class ShoppingListActivity : AppCompatActivity() {
             randomItem = productsList.get(Random.nextInt(0, productsList.size))
             productsList.remove(randomItem)
             checkbox.text = randomItem
-            layout?.addView(checkbox)
-            layout?.invalidate()
+            layout_activity_shopping_list?.addView(checkbox)
+            layout_activity_shopping_list?.invalidate()
             checkboxList.add(checkbox)
         }
 
         checkButton?.layoutParams = layoutParams
         checkButton?.text = "Check"
-        layout?.addView(checkButton)
-        layout?.invalidate()
+        layout_activity_shopping_list?.addView(checkButton)
+        layout_activity_shopping_list?.invalidate()
     }
 
     fun initializeListeners() {

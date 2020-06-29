@@ -5,15 +5,13 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import kotlinx.android.synthetic.main.activity_test.*
 import kz.step.stepeducation.R
-import java.util.*
 import kotlin.collections.ArrayList
 
 class TestActivity : AppCompatActivity() {
-    var questionTextView: TextView? = null
     var answerButtonsList: List<Button>? = null
     val questions: Map<Int, String> = mapOf(1 to "Какой язык программирования поддерживает Android Studio?",
                                             2 to "Какое расширение у файлов activity?")
@@ -22,7 +20,6 @@ class TestActivity : AppCompatActivity() {
                                                         2 to arrayListOf("html", "py", "cpp"))
     var questionCounter: Int = 0
     var rightAnswersCount: Int = 0
-    val random: Random = Random()
 
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,11 +31,10 @@ class TestActivity : AppCompatActivity() {
     }
 
     fun initializeViews() {
-        questionTextView = findViewById(R.id.textview_activity_test_question)
-        answerButtonsList = arrayListOf(findViewById(R.id.button_activity_test_answer1),
-                                        findViewById(R.id.button_activity_test_answer2),
-                                        findViewById(R.id.button_activity_test_answer3),
-                                        findViewById(R.id.button_activity_test_answer4))
+        answerButtonsList = arrayListOf(button_activity_test_answer1,
+                                        button_activity_test_answer2,
+                                        button_activity_test_answer3,
+                                        button_activity_test_answer4)
     }
 
     @RequiresApi(Build.VERSION_CODES.N)
@@ -81,7 +77,7 @@ class TestActivity : AppCompatActivity() {
             }
             builder.show()
         } else {
-            questionTextView?.text = questions.get(questionCounter)
+            textview_activity_test_question?.text = questions.get(questionCounter)
             var answersList = wrongAnswers.get(questionCounter)
             if (answersList != null) {
                 answers.get(questionCounter)?.let { answersList.add(it) }

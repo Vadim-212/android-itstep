@@ -6,12 +6,9 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.fragment_students.*
 import kz.step.stepeducation.R
 import kz.step.stepeducation.adapter.StudentsAdapter
 import kz.step.stepeducation.data.Student
@@ -21,14 +18,7 @@ class StudentsFragment : Fragment() {
     var rootView: View? = null
     var students: ArrayList<Student> = ArrayList()
     var filteredStudentsList: ArrayList<Student> = ArrayList()
-    var recyclerViewStudents: RecyclerView? = null
     var studentsAdapter: StudentsAdapter? = null
-
-    var filtrationByNameButton: Button? = null
-    var filtrationByMarkButton: Button? = null
-    var randonFiltrationButton: Button? = null
-    var searchEditText: EditText? = null
-    var clearSearchQueryButton: Button? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +34,6 @@ class StudentsFragment : Fragment() {
             container,
             false)
 
-        initializeViews()
         initializeData()
         initializeLayoutManager()
         initializeAdapter()
@@ -53,45 +42,35 @@ class StudentsFragment : Fragment() {
         return rootView
     }
 
-    fun initializeViews(){
-        recyclerViewStudents = rootView?.findViewById(R.id.recyclerview_fragment_students)
-
-        filtrationByNameButton = rootView?.findViewById(R.id.button_fragment_students_filtration_by_name)
-        filtrationByMarkButton = rootView?.findViewById(R.id.button_fragment_students_filtration_by_mark)
-        randonFiltrationButton = rootView?.findViewById(R.id.button_fragment_students_random_filtration)
-        searchEditText = rootView?.findViewById(R.id.edittext_fragment_students_search_query)
-        clearSearchQueryButton = rootView?.findViewById(R.id.button_fragment_students_clear_query)
-    }
-
     fun initializeListeners() {
-        filtrationByNameButton?.setOnClickListener {
+        button_fragment_students_filtration_by_name?.setOnClickListener {
             filteredStudentsList.sortBy { it.name }
             studentsAdapter?.notifyDataSetChanged()
         }
 
-        filtrationByMarkButton?.setOnClickListener {
+        button_fragment_students_filtration_by_mark?.setOnClickListener {
             filteredStudentsList.sortByDescending { it.mark }
             studentsAdapter?.notifyDataSetChanged()
         }
 
-        randonFiltrationButton?.setOnClickListener {
+        button_fragment_students_random_filtration?.setOnClickListener {
             filteredStudentsList.shuffle()
             studentsAdapter?.notifyDataSetChanged()
         }
 
-        searchEditText?.addTextChangedListener(object : TextWatcher {
+        edittext_fragment_students_search_query?.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {}
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) { }
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 filteredStudentsList.clear()
-                filteredStudentsList.addAll(students.filter { it.name.toLowerCase().contains(searchEditText?.text.toString().toLowerCase()) || it.name.toLowerCase() == searchEditText?.text.toString().toLowerCase() } as ArrayList<Student>)
+                filteredStudentsList.addAll(students.filter { it.name.toLowerCase().contains(edittext_fragment_students_search_query?.text.toString().toLowerCase()) || it.name.toLowerCase() == edittext_fragment_students_search_query?.text.toString().toLowerCase() } as ArrayList<Student>)
                 studentsAdapter?.notifyDataSetChanged()
             }
         })
 
-        clearSearchQueryButton?.setOnClickListener {
-            searchEditText?.setText("")
+        button_fragment_students_clear_query?.setOnClickListener {
+            edittext_fragment_students_search_query?.setText("")
             filteredStudentsList.clear()
             filteredStudentsList.addAll(students)
             studentsAdapter?.notifyDataSetChanged()
@@ -99,12 +78,12 @@ class StudentsFragment : Fragment() {
     }
 
     fun initializeLayoutManager(){
-        recyclerViewStudents?.layoutManager = LinearLayoutManager(context)
+        recyclerview_fragment_students?.layoutManager = LinearLayoutManager(context)
     }
 
     fun initializeAdapter(){
         studentsAdapter = StudentsAdapter(context, filteredStudentsList)
-        recyclerViewStudents?.adapter = studentsAdapter
+        recyclerview_fragment_students?.adapter = studentsAdapter
     }
 
     fun initializeData(){

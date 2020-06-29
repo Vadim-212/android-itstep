@@ -4,33 +4,21 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_new_login.*
 import kz.step.stepeducation.R
 
 class NewLoginActivity : AppCompatActivity() {
-    var loginEditText: EditText? = null
-    var passwordEditText: EditText? = null
-    var enterButton: Button? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_login)
-        initializeViews()
         initializeListeners()
     }
 
-    fun initializeViews() {
-        loginEditText = findViewById(R.id.edittext_activity_new_login_login)
-        passwordEditText = findViewById(R.id.edittext_activity_new_login_password)
-        enterButton = findViewById(R.id.button_activity_new_login_enter)
-    }
-
     fun initializeListeners() {
-        enterButton?.setOnClickListener {
-            val login = loginEditText?.text.toString()
-            val password = passwordEditText?.text.toString()
+        button_activity_new_login_enter?.setOnClickListener {
+            val login = edittext_activity_new_login_login?.text.toString()
+            val password = edittext_activity_new_login_password?.text.toString()
 
             if(login == "" || password == "") {
                 Toast.makeText(this, "Login and password must be filled", Toast.LENGTH_SHORT).show()
