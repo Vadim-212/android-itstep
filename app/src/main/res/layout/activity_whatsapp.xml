@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.WhatsappActivity">
+    tools:context=".presentation.activity.WhatsappActivity">
 
     <Button
         android:id="@+id/button_activity_whatsapp_send_message"

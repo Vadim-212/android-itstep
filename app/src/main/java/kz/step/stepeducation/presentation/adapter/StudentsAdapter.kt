@@ -1,4 +1,4 @@
-package kz.step.stepeducation.adapter
+package kz.step.stepeducation.presentation.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,8 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kz.step.stepeducation.R
 import kz.step.stepeducation.data.Student
-import kz.step.stepeducation.viewholder.StudentsHolder
-import kz.step.stepeducation.viewholder.StudentsFullInfoHolder
+import kz.step.stepeducation.presentation.viewholder.StudentsFullInfoHolder
 
 class StudentsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder> {
 

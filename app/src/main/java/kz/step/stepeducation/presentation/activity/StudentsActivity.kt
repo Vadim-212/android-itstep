@@ -1,17 +1,10 @@
-package kz.step.stepeducation.activity
+package kz.step.stepeducation.presentation.activity
 
-import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.ListView
 import androidx.fragment.app.Fragment
 import kz.step.stepeducation.R
-import kz.step.stepeducation.fragments.StudentsFragment
-import kz.step.stepeducation.StudentsSortUseCase
-import kz.step.stepeducation.adapter.StudentsAdapter
-import kz.step.stepeducation.data.Student
+import kz.step.stepeducation.presentation.fragments.StudentsFragment
 
 class StudentsActivity : AppCompatActivity() {
     //var buttonSortByName: Button? = null

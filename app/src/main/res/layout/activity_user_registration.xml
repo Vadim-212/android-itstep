@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.UserRegistrationActivity">
+    tools:context=".presentation.activity.UserRegistrationActivity">
 
     <ImageView
         android:id="@+id/imageview_activity_user_registration_user_selfie"

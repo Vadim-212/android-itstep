@@ -1,4 +1,4 @@
-package kz.step.stepeducation.fragments
+package kz.step.stepeducation.presentation.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

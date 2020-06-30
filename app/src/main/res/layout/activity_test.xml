@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.TestActivity">
+    tools:context=".presentation.activity.TestActivity">
 
     <TextView
         android:id="@+id/textview_activity_test_question"

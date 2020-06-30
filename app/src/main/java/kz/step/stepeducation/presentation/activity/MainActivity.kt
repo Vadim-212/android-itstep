@@ -1,4 +1,4 @@
-package kz.step.stepeducation.activity
+package kz.step.stepeducation.presentation.activity
 
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import kz.step.stepeducation.*
 import kotlinx.android.synthetic.main.activity_main.*
+import kz.step.stepeducation.domain.StudentsSortUseCase
 
 
 class MainActivity : AppCompatActivity() {

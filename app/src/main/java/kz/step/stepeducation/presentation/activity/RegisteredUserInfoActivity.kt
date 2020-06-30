@@ -1,4 +1,4 @@
-package kz.step.stepeducation.activity
+package kz.step.stepeducation.presentation.activity
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory

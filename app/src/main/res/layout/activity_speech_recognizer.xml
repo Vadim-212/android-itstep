@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.SpeechRecognizerActivity">
+    tools:context=".presentation.activity.SpeechRecognizerActivity">
 
     <Button
         android:id="@+id/button_activity_speech_recognizer_recognize"

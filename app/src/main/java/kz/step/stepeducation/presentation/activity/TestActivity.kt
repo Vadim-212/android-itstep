@@ -1,4 +1,4 @@
-package kz.step.stepeducation.activity
+package kz.step.stepeducation.presentation.activity
 
 import android.app.AlertDialog
 import android.os.Build

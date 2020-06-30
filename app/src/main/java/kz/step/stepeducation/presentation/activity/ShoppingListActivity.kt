@@ -1,4 +1,4 @@
-package kz.step.stepeducation.activity
+package kz.step.stepeducation.presentation.activity
 
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
