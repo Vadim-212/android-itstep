@@ -47,6 +47,7 @@ class StudentsFragment : Fragment(), StudentsFragmentContract.View, View.OnClick
         initializePresenter()
         initializeLayoutManager()
         initializeAdapter()
+        initializeListeners()
         presenter.initializeData()
     }
 
@@ -67,7 +68,6 @@ class StudentsFragment : Fragment(), StudentsFragmentContract.View, View.OnClick
                 presenter.initializeSortStudentsRandom()
             }
             R.id.button_fragment_students_clear_query -> {
-                //presenter.initializeSortStudentsByName()
                 edittext_fragment_students_search_query?.setText("")
                 presenter.initializeData()
             }
@@ -118,7 +118,10 @@ class StudentsFragment : Fragment(), StudentsFragmentContract.View, View.OnClick
         studentsAdapter?.notifyDataSetChanged()
     }
 
-    override fun processData(students: ArrayList<Student>) { }
+    override fun processData(students: ArrayList<Student>) {
+        this.students.clear()
+        this.students.addAll(students)
+    }
 
     override fun initializeArguments() { }
 
