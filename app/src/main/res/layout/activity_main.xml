@@ -35,19 +35,8 @@
             android:layout_gravity="center"/>
 
         <Button
-            android:id="@+id/button_activity_main_call_crash"
-            app:layout_constraintTop_toBottomOf="@+id/button_activity_main_action"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="@string/activity_main_button_call_crash"
-            android:layout_width="150dp"
-            android:layout_height="55dp"
-            android:gravity="center"
-            android:layout_gravity="center"/>
-
-        <Button
             android:id="@+id/button_activity_main_goto_students_activity"
-            app:layout_constraintTop_toBottomOf="@+id/button_activity_main_call_crash"
+            app:layout_constraintTop_toBottomOf="@+id/button_activity_main_action"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:text="@string/activity_main_button_goto_students_activity_text"
@@ -57,8 +46,19 @@
             android:layout_gravity="center"/>
 
         <Button
-            android:id="@+id/button_activity_main_open_camera"
+            android:id="@+id/button_activity_main_goto_notes_activity"
             app:layout_constraintTop_toBottomOf="@+id/button_activity_main_goto_students_activity"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/activity_main_button_goto_notes_activity_text"
+            android:layout_width="150dp"
+            android:layout_height="55dp"
+            android:gravity="center"
+            android:layout_gravity="center"/>
+
+        <Button
+            android:id="@+id/button_activity_main_open_camera"
+            app:layout_constraintTop_toBottomOf="@+id/button_activity_main_goto_notes_activity"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:text="@string/activity_main_button_open_camera"
@@ -79,8 +79,19 @@
            android:layout_gravity="center"/>
 
         <Button
+            android:id="@+id/button_activity_main_call_crash"
+            app:layout_constraintTop_toBottomOf="@+id/button_activity_main_start_call"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/activity_main_button_call_crash"
+            android:layout_width="150dp"
+            android:layout_height="55dp"
+            android:gravity="center"
+            android:layout_gravity="center"/>
+
+        <Button
            android:id="@+id/button_activity_main_goto_activity1"
-           app:layout_constraintTop_toBottomOf="@+id/button_activity_main_start_call"
+           app:layout_constraintTop_toBottomOf="@+id/button_activity_main_call_crash"
            app:layout_constraintStart_toStartOf="parent"
            app:layout_constraintEnd_toEndOf="parent"
            android:text="@string/activity_main_button_goto_activity1"

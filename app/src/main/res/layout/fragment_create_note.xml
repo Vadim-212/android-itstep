@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.fragments.CreateNoteFragment">
+
+    <EditText
+        android:id="@+id/edittext_fragment_create_note_title"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        style="@style/note_title_style"
+        android:hint="@string/fragment_create_note_edittext_title"
+        android:layout_margin="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/edittext_fragment_create_note_due_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/note_due_date_style"
+        android:inputType="date"
+        android:focusable="false"
+        android:hint="@string/fragment_create_note_edittext_due_date"
+        android:layout_margin="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_fragment_create_note_title" />
+
+    <EditText
+        android:id="@+id/edittext_fragment_create_note_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        style="@style/note_text_style"
+        android:hint="@string/fragment_create_note_edittext_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_fragment_create_note_due_date" />
+
+    <ImageView
+        android:id="@+id/imageview_fragment_create_note_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_margin="5dp"
+        android:src="@drawable/camera_stub"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_fragment_create_note_text" />
+
+    <Button
+        android:id="@+id/button_fragment_create_note_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="@string/fragment_create_note_button_add"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageview_fragment_create_note_photo" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

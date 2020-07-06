@@ -108,5 +108,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, UserRegistrationActivity::class.java)
             startActivity(intent)
         }
+
+        button_activity_main_goto_notes_activity?.setOnClickListener {
+            val intent = Intent(this, NotesActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

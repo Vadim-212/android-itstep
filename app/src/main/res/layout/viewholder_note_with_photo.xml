@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/textview_viewholder_note_with_photo_title"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        style="@style/note_title_style"
+        tools:text="Заметка"
+        android:layout_margin="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/textview_viewholder_note_with_photo_due_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        style="@style/note_due_date_style"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_viewholder_note_with_photo_title"
+        tools:text="1970-01-01" />
+
+    <TextView
+        android:id="@+id/textview_viewholder_note_with_photo_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        style="@style/note_text_style"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_viewholder_note_with_photo_due_date"
+        tools:text="Текст заметки" />
+
+    <ImageView
+        android:id="@+id/imageview_viewholder_note_with_photo_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_margin="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_viewholder_note_with_photo_text" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageview_viewholder_note_with_photo_photo"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="10dp"
+        android:background="@color/color_darker_gray" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

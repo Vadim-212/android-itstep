@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -13,26 +14,27 @@
         android:roundIcon="@mipmap/ic_launcher_new_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="kz.step.stepeducation.presentation.activity.RegisteredUserInfoActivity"/>
-        <activity android:name="kz.step.stepeducation.presentation.activity.UserRegistrationActivity" />
-        <activity android:name="kz.step.stepeducation.presentation.activity.SpeechRecognizerActivity" />
-        <activity android:name="kz.step.stepeducation.presentation.activity.NewLoginActivity" />
-        <activity android:name="kz.step.stepeducation.presentation.activity.WhatsappActivity" />
-        <activity android:name="kz.step.stepeducation.presentation.activity.APIVersionActivity" />
-        <activity android:name="kz.step.stepeducation.presentation.activity.ShoppingListActivity" />
-        <activity android:name="kz.step.stepeducation.presentation.activity.LoginActivity" />
-        <activity android:name="kz.step.stepeducation.presentation.activity.TestActivity" />
-        <activity android:name="kz.step.stepeducation.presentation.activity.PhotoActivity" />
-        <activity android:name="kz.step.stepeducation.presentation.activity.DataActivity2" />
-        <activity android:name="kz.step.stepeducation.presentation.activity.DataActivity1" />
-        <activity android:name="kz.step.stepeducation.presentation.activity.MainActivity">
+        <activity android:name=".presentation.activity.NotesActivity"/>
+        <activity android:name=".presentation.activity.RegisteredUserInfoActivity" />
+        <activity android:name=".presentation.activity.UserRegistrationActivity" />
+        <activity android:name=".presentation.activity.SpeechRecognizerActivity" />
+        <activity android:name=".presentation.activity.NewLoginActivity" />
+        <activity android:name=".presentation.activity.WhatsappActivity" />
+        <activity android:name=".presentation.activity.APIVersionActivity" />
+        <activity android:name=".presentation.activity.ShoppingListActivity" />
+        <activity android:name=".presentation.activity.LoginActivity" />
+        <activity android:name=".presentation.activity.TestActivity" />
+        <activity android:name=".presentation.activity.PhotoActivity" />
+        <activity android:name=".presentation.activity.DataActivity2" />
+        <activity android:name=".presentation.activity.DataActivity1" />
+        <activity android:name=".presentation.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="kz.step.stepeducation.presentation.activity.StudentsActivity" />
+        <activity android:name=".presentation.activity.StudentsActivity" />
     </application>
 
 </manifest>

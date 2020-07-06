@@ -7,4 +7,20 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="note_title_style">
+        <item name="android:textSize">19sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/color_black</item>
+    </style>
+
+    <style name="note_text_style">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/color_black</item>
+    </style>
+
+    <style name="note_due_date_style">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/color_darker_gray</item>
+    </style>
+
 </resources>
