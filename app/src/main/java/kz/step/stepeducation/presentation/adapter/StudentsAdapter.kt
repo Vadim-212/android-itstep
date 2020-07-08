@@ -1,19 +1,26 @@
 package kz.step.stepeducation.presentation.adapter
 
 import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.fragment_viewpager.*
 import kz.step.stepeducation.R
 import kz.step.stepeducation.data.Student
+import kz.step.stepeducation.presentation.fragments.ViewPagerFragment
+import kz.step.stepeducation.presentation.utils.Constants
 import kz.step.stepeducation.presentation.viewholder.StudentsFullInfoHolder
+
 
 class StudentsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     var context: Context? = null
-    lateinit var students: ArrayList<Student>
+    var students: ArrayList<Student>
 
-    constructor(context: Context?, students: ArrayList<Student>){
+    constructor(context: Context?, students: ArrayList<Student>) {
         this.context = context
         this.students = students
     }
@@ -23,7 +30,7 @@ class StudentsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder> {
 //            STUDENT_WITH_GROUP -> return StudentsFullInfoHolder(LayoutInflater.from(context).inflate(R.layout.viewholder_student_full_info, parent, false))
 //            else -> return StudentsHolder(LayoutInflater.from(context).inflate(R.layout.viewholder_student, parent, false))
 //        }
-        var view = LayoutInflater.from(context).inflate(R.layout.viewholder_student_full_info, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.viewholder_student_full_info, parent, false)
         return StudentsFullInfoHolder(view)
     }
 
@@ -37,6 +44,23 @@ class StudentsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder> {
 //            STUDENT_WITH_GROUP -> (holder as StudentsFullInfoHolder).initiateBind(students.get(position))
 //            else -> (holder as StudentsHolder).initiateBind(students.get(position))
 //        }
+        holder.itemView.setOnClickListener(View.OnClickListener {
+            val fragment = ViewPagerFragment()
+            val args = Bundle()
+            args.putInt("Position", position)
+            fragment.arguments = args
+            val fragmentManager = (it.context as FragmentActivity).supportFragmentManager
+            var fragmentTransaction = fragmentManager.beginTransaction()
+            fragmentManager.executePendingTransactions()
+            fragmentTransaction.add(
+                R.id.relativelayout_activity_students_fragment_container,
+                fragment,
+                fragment.javaClass.name ?: ""
+            )
+
+            fragmentTransaction.addToBackStack("Name")
+            fragmentTransaction.commit()
+        })
         (holder as StudentsFullInfoHolder).initiateBind(students.get(position))
     }
 
@@ -44,4 +68,4 @@ class StudentsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder> {
 //        return if(students[position].group != null && students[position].group != "") STUDENT_WITH_GROUP
 //        else STUDENT_WITHOUT_GROUP
 //    }
-}
+    }

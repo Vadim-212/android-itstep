@@ -56,5 +56,4 @@
     <string name="fragment_create_note_edittext_due_date">Дата</string>
     <string name="fragment_create_note_edittext_text">Текст</string>
     <string name="fragment_create_note_button_add">Добавить</string>
-
 </resources>

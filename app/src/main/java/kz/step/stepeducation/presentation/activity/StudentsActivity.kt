@@ -2,9 +2,12 @@ package kz.step.stepeducation.presentation.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.activity_students.*
 import kz.step.stepeducation.R
 import kz.step.stepeducation.presentation.fragments.StudentsFragment
+import kz.step.stepeducation.presentation.fragments.ViewPagerFragment
 
 class StudentsActivity : AppCompatActivity() {
     //var buttonSortByName: Button? = null
@@ -17,6 +20,7 @@ class StudentsActivity : AppCompatActivity() {
     var currentFragment: Fragment? = null
     //var studentsList: ArrayList<Student> = ArrayList()
     //var studentsAdapter: StudentsAdapter? = null
+    //var isViewChanged = false
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,9 +29,10 @@ class StudentsActivity : AppCompatActivity() {
 
         //initializeViews()
         //initializeStudentsList()
-        //initializeListeners()
+        initializeListeners()
 
         initializeDefaultFragment()
+
         //displayFragment(StudentInformationFragment())
     }
 
@@ -43,7 +48,7 @@ class StudentsActivity : AppCompatActivity() {
 //        listViewStudents?.adapter = adapter
 //    }
 //
-//    private fun initializeListeners() {
+    private fun initializeListeners() {
 //        buttonSortByName?.setOnClickListener {
 //            studentsList = studentsSortUseCase.initiateSortStudentsByName(studentsList)
 //            initializeStudentsList()
@@ -53,7 +58,15 @@ class StudentsActivity : AppCompatActivity() {
 //            studentsList = studentsSortUseCase.initiateSortStudentsRandom(studentsList)
 //            initializeStudentsList()
 //        }
-//    }
+//        button_activity_students_change_view?.setOnClickListener {
+//            if(isViewChanged) {
+//                supportFragmentManager?.popBackStack()
+//            } else {
+//                displayFragment(ViewPagerFragment())
+//            }
+//            isViewChanged = !isViewChanged
+//        }
+    }
 
 
     fun initializeDefaultFragment(){
@@ -64,14 +77,13 @@ class StudentsActivity : AppCompatActivity() {
     }
 
     fun displayFragment(fragment: Fragment){
-
         this.currentFragment = fragment
-        var fragmentTransaction = supportFragmentManager.beginTransaction()
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
         supportFragmentManager.executePendingTransactions()
         fragmentTransaction.add(
             R.id.relativelayout_activity_students_fragment_container,
-            fragment!!,
-            fragment?.javaClass?.name ?: "")
+            fragment,
+            fragment.javaClass.name ?: "")
 
         fragmentTransaction.addToBackStack("Name")
         fragmentTransaction.commit()
