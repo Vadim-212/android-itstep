@@ -21,6 +21,7 @@ class RegisteredUserInfoActivity : AppCompatActivity() {
         val userSelfieByteArray = intent?.extras?.getByteArray("userSelfie")
         val userFirstName = intent?.extras?.getString("userFirstName")
         val userSurname = intent?.extras?.getString("userSurname")
+        val userDob = intent?.extras?.getString("userDob")
 
         if (userSelfieByteArray != null) {
             imageview_activity_registered_user_info_user_selfie?.setImageBitmap(byteArrayToBitmap(userSelfieByteArray))
@@ -30,6 +31,9 @@ class RegisteredUserInfoActivity : AppCompatActivity() {
         }
         if(userSurname != null) {
             edittext_activity_registered_user_info_user_surname?.setText(userSurname)
+        }
+        if(userDob != null) {
+            edittext_activity_registered_user_info_user_dob?.setText(userDob)
         }
     }
 

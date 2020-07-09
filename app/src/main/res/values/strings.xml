@@ -56,4 +56,6 @@
     <string name="fragment_create_note_edittext_due_date">Дата</string>
     <string name="fragment_create_note_edittext_text">Текст</string>
     <string name="fragment_create_note_button_add">Добавить</string>
+    <string name="activity_user_registration_edittext_dob_hint">Дата рождения</string>
+    <string name="activity_registered_user_info_edittext_dob_hint">Дата рождения</string>
 </resources>
