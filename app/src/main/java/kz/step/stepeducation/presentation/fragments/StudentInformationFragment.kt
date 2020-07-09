@@ -42,6 +42,9 @@ class StudentInformationFragment : Fragment() {
 
     @SuppressLint("SetTextI18n")
     fun initializeData() {
+        if(student?.avatar != null) {
+            imageview_fragment_students_information_image?.setImageBitmap(student?.avatar)
+        }
         textview_fragment_students_information_name?.setText(student?.name)
         textview_fragment_students_information_info?.setText("Group: ${student?.group}\nMark: ${student?.mark}\nDescription: ${student?.description}")
     }

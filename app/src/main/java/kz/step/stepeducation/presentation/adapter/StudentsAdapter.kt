@@ -42,7 +42,7 @@ class StudentsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder> {
         //(holder as StudentsHolder).initiateBind(students.get(position))
 //        when(holder.itemViewType) {
 //            STUDENT_WITH_GROUP -> (holder as StudentsFullInfoHolder).initiateBind(students.get(position))
-//            else -> (holder as StudentsHolder).initiateBind(students.get(position))
+//             else -> (holder as StudentsHolder).initiateBind(students.get(position))
 //        }
         holder.itemView.setOnClickListener(View.OnClickListener {
             val fragment = ViewPagerFragment()

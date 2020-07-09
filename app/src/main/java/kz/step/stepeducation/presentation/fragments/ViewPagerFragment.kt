@@ -1,5 +1,6 @@
 package kz.step.stepeducation.presentation.fragments
 
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -47,9 +48,9 @@ class ViewPagerFragment : Fragment(), View.OnClickListener {
     }
 
     fun initializeStudentsData() {
-        students.add(Student("Alex", "Good Student","Group 2",12F))
-        students.add(Student("Roland", "Bad Student", "Group 1",11F))
-        students.add(Student("Force", "Average Student","Group 2",10.5F))
+        students.add(Student("Alex", "Good Student","Group 2",12F, BitmapFactory.decodeStream(context?.assets?.open("camera_stub_image.png"))))
+        students.add(Student("Roland", "Bad Student", "Group 1",11F, BitmapFactory.decodeStream(context?.assets?.open("camera_stub_image.png"))))
+        students.add(Student("Force", "Average Student","Group 2",10.5F, BitmapFactory.decodeStream(context?.assets?.open("camera_stub_image.png"))))
     }
 
     fun initializeViewPagerAdapter() {

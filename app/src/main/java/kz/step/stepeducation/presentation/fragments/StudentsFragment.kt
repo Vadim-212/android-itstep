@@ -52,7 +52,7 @@ class StudentsFragment : Fragment(), StudentsFragmentContract.View, View.OnClick
     }
 
     override fun initializePresenter() {
-        presenter = StudentsFragmentPresenter()
+        presenter = StudentsFragmentPresenter(context!!)
         presenter.attach(this)
     }
 
