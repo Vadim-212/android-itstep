@@ -3,19 +3,15 @@ package kz.step.stepeducation.presentation.adapter
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
-import android.graphics.ColorFilter
 import android.os.Build
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import kz.step.stepeducation.R
 import kz.step.stepeducation.data.Note
-import kz.step.stepeducation.data.Student
 import kz.step.stepeducation.presentation.viewholder.NotesHolder
 import kz.step.stepeducation.presentation.viewholder.NotesWithPhotoHolder
-import kz.step.stepeducation.presentation.viewholder.StudentsFullInfoHolder
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 

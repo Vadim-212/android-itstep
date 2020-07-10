@@ -7,11 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.fragment_viewpager.*
 import kz.step.stepeducation.R
-import kz.step.stepeducation.data.Student
+import kz.step.stepeducation.domain.Student
 import kz.step.stepeducation.presentation.fragments.ViewPagerFragment
-import kz.step.stepeducation.presentation.utils.Constants
 import kz.step.stepeducation.presentation.viewholder.StudentsFullInfoHolder
 
 

@@ -2,17 +2,18 @@ package kz.step.stepeducation.presentation.fragments
 
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.viewpager.widget.ViewPager
+import androidx.room.Room
+import androidx.room.RoomDatabase
 import kotlinx.android.synthetic.main.fragment_viewpager.*
 import kz.step.stepeducation.R
-import kz.step.stepeducation.data.Student
+import kz.step.stepeducation.data.StepEducationDatabase
+import kz.step.stepeducation.domain.Student
 import kz.step.stepeducation.presentation.adapter.ViewPagerStudentsAdapter
-import kz.step.stepeducation.presentation.utils.Constants
 
 class ViewPagerFragment : Fragment(), View.OnClickListener {
     var rootView: View? = null
@@ -42,15 +43,87 @@ class ViewPagerFragment : Fragment(), View.OnClickListener {
         initializeStudentsData()
         initializeViewPagerAdapter()
 //        initializeListeners()
+
+        var stepEducationDatabase = Room.databaseBuilder(
+            context!!,
+            StepEducationDatabase::class.java,
+            "StepEducationDatabase").allowMainThreadQueries().build()
+
+        stepEducationDatabase.getStudentDao().initiateInsertStudent(kz.step.stepeducation.data.Student().apply {
+            name = "John"
+        })
+        stepEducationDatabase.getStudentsGroupDao().initiateInsertGroup(kz.step.stepeducation.data.StudentsGroup().apply {
+            title = "Group A"
+        })
+
+        stepEducationDatabase.getStudentDao().initiateInsertStudentsList(listOf(kz.step.stepeducation.data.Student().apply {
+            name = "Roland"
+        }, kz.step.stepeducation.data.Student().apply {
+            name = "Mike"
+        }))
+        stepEducationDatabase.getStudentsGroupDao().initiateInsertGroupsList(listOf(kz.step.stepeducation.data.StudentsGroup().apply {
+            title = "Group B"
+        }, kz.step.stepeducation.data.StudentsGroup().apply {
+            title = "Group C"
+        }))
+
+        Log.d("ROOM_TEST", stepEducationDatabase.getStudentDao().initiateGetStudents().joinToString { it.toString() })
+        Log.d("ROOM_TEST", stepEducationDatabase.getStudentsGroupDao().initiateGetGroups().joinToString { it.toString() })
+
+        Log.d("ROOM_TEST", stepEducationDatabase.getStudentDao().initiateGetStudentById(1).toString())
+        Log.d("ROOM_TEST", stepEducationDatabase.getStudentsGroupDao().initiateGetGroupById(1).toString())
+
+        stepEducationDatabase.getStudentDao().initiateDeleteStudentById(1)
+        stepEducationDatabase.getStudentsGroupDao().initiateDeleteGroupById(1)
+
+        stepEducationDatabase.getStudentDao().initiateDeleteStudents()
+        stepEducationDatabase.getStudentsGroupDao().initiateDeleteGroups()
+
+//        stepEducationDatabase.getStudentDao().initiateInsertStudent(kz.step.stepeducation.data.Student().apply {
+//            name = "John"
+//        })
+//        stepEducationDatabase.getStudentDao().initiateInsertStudent(kz.step.stepeducation.data.Student().apply {
+//            name = "Alex"
+//        })
+//        stepEducationDatabase.getStudentDao().initiateInsertStudent(kz.step.stepeducation.data.Student().apply {
+//            name = "Jack"
+//        })
+
+        var list = stepEducationDatabase.getStudentDao().initiateGetStudents()
+
         if(newPosition != null) {
             viewpager_fragment_viewpager?.setCurrentItem(newPosition!!, true)
         }
     }
 
     fun initializeStudentsData() {
-        students.add(Student("Alex", "Good Student","Group 2",12F, BitmapFactory.decodeStream(context?.assets?.open("camera_stub_image.png"))))
-        students.add(Student("Roland", "Bad Student", "Group 1",11F, BitmapFactory.decodeStream(context?.assets?.open("camera_stub_image.png"))))
-        students.add(Student("Force", "Average Student","Group 2",10.5F, BitmapFactory.decodeStream(context?.assets?.open("camera_stub_image.png"))))
+        students.add(
+            Student(
+                "Alex",
+                "Good Student",
+                "Group 2",
+                12F,
+                BitmapFactory.decodeStream(context?.assets?.open("camera_stub_image.png"))
+            )
+        )
+        students.add(
+            Student(
+                "Roland",
+                "Bad Student",
+                "Group 1",
+                11F,
+                BitmapFactory.decodeStream(context?.assets?.open("camera_stub_image.png"))
+            )
+        )
+        students.add(
+            Student(
+                "Force",
+                "Average Student",
+                "Group 2",
+                10.5F,
+                BitmapFactory.decodeStream(context?.assets?.open("camera_stub_image.png"))
+            )
+        )
     }
 
     fun initializeViewPagerAdapter() {

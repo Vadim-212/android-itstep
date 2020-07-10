@@ -1,9 +1,5 @@
 package kz.step.stepeducation.domain
 
-import android.util.Log
-import kotlinx.android.synthetic.main.fragment_students.*
-import kz.step.stepeducation.data.Student
-
 class StudentsSortUseCase {
     fun initiateSortStudentsByName(students: ArrayList<Student>) : ArrayList<Student> {
         return students.apply { sortBy { student -> student.name } }

@@ -1,6 +1,6 @@
 package kz.step.stepeducation.presentation.contract
 
-import kz.step.stepeducation.data.Student
+import kz.step.stepeducation.domain.Student
 import kz.step.stepeducation.presentation.base.BaseContract
 
 interface StudentsFragmentContract {

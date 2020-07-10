@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.viewholder_student_full_info.view.*
-import kz.step.stepeducation.data.Student
+import kz.step.stepeducation.domain.Student
 
 class StudentsFullInfoHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     var context: Context? = null

@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_student_information.*
 import kz.step.stepeducation.R
-import kz.step.stepeducation.data.Student
+import kz.step.stepeducation.domain.Student
 import kz.step.stepeducation.presentation.utils.Constants
 
 class StudentInformationFragment : Fragment() {

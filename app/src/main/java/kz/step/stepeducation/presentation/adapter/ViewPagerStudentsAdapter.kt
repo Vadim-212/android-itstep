@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
-import kz.step.stepeducation.data.Student
+import kz.step.stepeducation.domain.Student
 import kz.step.stepeducation.presentation.fragments.StudentInformationFragment
 import kz.step.stepeducation.presentation.utils.Constants
 
