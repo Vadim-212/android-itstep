@@ -3,6 +3,7 @@ package kz.step.stepeducation.presentation.fragments
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,6 +25,7 @@ class StudentsFragment : Fragment(), StudentsFragmentContract.View, View.OnClick
     var filteredStudentsList: ArrayList<Student> = ArrayList()
     var studentsAdapter: StudentsAdapter? = null
     lateinit var presenter: StudentsFragmentPresenter
+    var studentToAdd: Student? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +41,12 @@ class StudentsFragment : Fragment(), StudentsFragmentContract.View, View.OnClick
             container,
             false)
 
+        if(arguments != null) {
+            if(arguments!!.getParcelable<Student>("student") != null) {
+                studentToAdd = arguments!!.getParcelable<Student>("student")
+            }
+        }
+
         return rootView
     }
 
@@ -50,6 +58,10 @@ class StudentsFragment : Fragment(), StudentsFragmentContract.View, View.OnClick
         initializeAdapter()
         initializeListeners()
         presenter.initializeData()
+
+        if(studentToAdd != null) {
+            presenter.initiateAddStudent(studentToAdd!!)
+        }
     }
 
     override fun initializePresenter() {

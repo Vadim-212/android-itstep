@@ -85,6 +85,12 @@ class StudentsFragmentPresenter : StudentsFragmentContract.Presenter {
         view?.initiateUpdateAdapter()
     }
 
+    override fun initiateAddStudent(student: Student) {
+        students.add(student)
+        view?.processData(students)
+        view?.initiateUpdateAdapter()
+    }
+
     override fun onStop() {
         view = null
     }

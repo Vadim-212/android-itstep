@@ -2,12 +2,15 @@ package kz.step.stepeducation.presentation.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.activity_students.*
 import kz.step.stepeducation.R
+import kz.step.stepeducation.domain.Student
 import kz.step.stepeducation.presentation.fragments.StudentsFragment
 import kz.step.stepeducation.presentation.fragments.ViewPagerFragment
+import java.nio.BufferUnderflowException
 
 class StudentsActivity : AppCompatActivity() {
     //var buttonSortByName: Button? = null
@@ -21,7 +24,7 @@ class StudentsActivity : AppCompatActivity() {
     //var studentsList: ArrayList<Student> = ArrayList()
     //var studentsAdapter: StudentsAdapter? = null
     //var isViewChanged = false
-
+    var fragmentArguments: Bundle? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +33,11 @@ class StudentsActivity : AppCompatActivity() {
         //initializeViews()
         //initializeStudentsList()
         initializeListeners()
+
+        if(intent.extras?.getParcelable<Student>("student") != null){
+            fragmentArguments = Bundle()
+            fragmentArguments!!.putParcelable("student", intent.extras?.getParcelable<Student>("student"))
+        }
 
         initializeDefaultFragment()
 
@@ -76,7 +84,10 @@ class StudentsActivity : AppCompatActivity() {
         }
     }
 
-    fun displayFragment(fragment: Fragment){
+    fun displayFragment(fragment: Fragment) {
+        if(fragmentArguments != null) {
+            fragment.arguments = fragmentArguments
+        }
         this.currentFragment = fragment
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         supportFragmentManager.executePendingTransactions()

@@ -55,9 +55,33 @@
         android:focusable="false"
         android:hint="@string/activity_user_registration_edittext_dob_hint"/>
 
+    <EditText
+        android:id="@+id/edittext_activity_user_registration_user_group"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_activity_user_registration_user_dob"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:maxLines="1"
+        android:inputType="text"
+        android:hint="@string/activity_user_registration_edittext_group_hint"/>
+
+    <EditText
+        android:id="@+id/edittext_activity_user_registration_user_mark"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_activity_user_registration_user_group"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:maxLines="1"
+        android:inputType="numberDecimal"
+        android:hint="@string/activity_user_registration_edittext_mark_hint"/>
+
     <Button
         android:id="@+id/button_activity_user_registration_fill_info"
-        app:layout_constraintTop_toBottomOf="@+id/edittext_activity_user_registration_user_dob"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_activity_user_registration_user_mark"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_width="wrap_content"

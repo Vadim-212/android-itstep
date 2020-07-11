@@ -16,7 +16,7 @@ class Student : Parcelable {
         description = parcel.readString().toString()
         group = parcel.readString().toString()
         mark = parcel.readFloat()
-        avatar = parcel.readParcelable(Bitmap::class.java.classLoader)
+        avatar = parcel.readValue(Bitmap::class.java.classLoader) as Bitmap?
     }
 
     constructor() {

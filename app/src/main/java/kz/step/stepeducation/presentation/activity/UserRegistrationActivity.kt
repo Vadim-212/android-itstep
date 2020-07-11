@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
 import kotlinx.android.synthetic.main.activity_user_registration.*
 import kz.step.stepeducation.R
+import kz.step.stepeducation.domain.Student
 import kz.step.stepeducation.presentation.base.BaseDialog
 import java.io.ByteArrayOutputStream
 import java.io.IOException
@@ -84,11 +85,18 @@ class UserRegistrationActivity : AppCompatActivity(), DatePickerDialog.OnDateSet
                 return@setOnClickListener
             }
 
-            val intent = Intent(this, RegisteredUserInfoActivity::class.java)
-            intent.putExtra("userSelfie", drawableToByteArray(imageview_activity_user_registration_user_selfie?.drawable as BitmapDrawable))
-            intent.putExtra("userFirstName", edittext_activity_user_registration_user_first_name?.text.toString())
-            intent.putExtra("userSurname", edittext_activity_user_registration_user_surname?.text.toString())
-            intent.putExtra("userDob", edittext_activity_user_registration_user_dob?.text.toString())
+//            val intent = Intent(this, RegisteredUserInfoActivity::class.java)
+            val intent = Intent(this, StudentsActivity::class.java)
+            val student = Student(edittext_activity_user_registration_user_first_name?.text.toString() + " " + edittext_activity_user_registration_user_surname?.text.toString(),
+                                  "Дата рождения - ${edittext_activity_user_registration_user_dob?.text}",
+                                  edittext_activity_user_registration_user_group?.text.toString(),
+                                  edittext_activity_user_registration_user_mark?.text.toString().toFloat(),
+                                  (imageview_activity_user_registration_user_selfie?.drawable as BitmapDrawable).bitmap)
+//            intent.putExtra("userSelfie", drawableToByteArray(imageview_activity_user_registration_user_selfie?.drawable as BitmapDrawable))
+//            intent.putExtra("userFirstName", edittext_activity_user_registration_user_first_name?.text.toString())
+//            intent.putExtra("userSurname", edittext_activity_user_registration_user_surname?.text.toString())
+//            intent.putExtra("userDob", edittext_activity_user_registration_user_dob?.text.toString())
+            intent.putExtra("student", student)
             startActivity(intent)
         }
     }

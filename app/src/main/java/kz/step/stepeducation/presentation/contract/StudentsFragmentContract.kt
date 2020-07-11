@@ -28,5 +28,7 @@ interface StudentsFragmentContract {
         fun initiateSortStudentsByQuery(query: String)
 
         fun initiateTopThreeStudentsByMark()
+
+        fun initiateAddStudent(student: Student)
     }
 }
