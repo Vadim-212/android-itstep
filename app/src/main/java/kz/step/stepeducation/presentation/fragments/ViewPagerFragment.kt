@@ -47,14 +47,17 @@ class ViewPagerFragment : Fragment(), View.OnClickListener {
         var stepEducationDatabase = Room.databaseBuilder(
             context!!,
             StepEducationDatabase::class.java,
-            "StepEducationDatabase").allowMainThreadQueries().build()
+            "StepEducationDatabase").allowMainThreadQueries()
+            .fallbackToDestructiveMigration() // TODO: потеря данных в базе данных, при использовании fallbackToDestructiveMigration()
+            .build()
 
-        stepEducationDatabase.getStudentDao().initiateInsertStudent(kz.step.stepeducation.data.Student().apply {
-            name = "John"
-        })
         stepEducationDatabase.getStudentsGroupDao().initiateInsertGroup(kz.step.stepeducation.data.StudentsGroup().apply {
             title = "Group A"
         })
+        stepEducationDatabase.getStudentDao().initiateInsertStudent(kz.step.stepeducation.data.Student().apply {
+            name = "John"
+        })
+
 
         stepEducationDatabase.getStudentDao().initiateInsertStudentsList(listOf(kz.step.stepeducation.data.Student().apply {
             name = "Roland"
@@ -70,8 +73,8 @@ class ViewPagerFragment : Fragment(), View.OnClickListener {
         Log.d("ROOM_TEST", stepEducationDatabase.getStudentDao().initiateGetStudents().joinToString { it.toString() })
         Log.d("ROOM_TEST", stepEducationDatabase.getStudentsGroupDao().initiateGetGroups().joinToString { it.toString() })
 
-        Log.d("ROOM_TEST", stepEducationDatabase.getStudentDao().initiateGetStudentById(1).toString())
-        Log.d("ROOM_TEST", stepEducationDatabase.getStudentsGroupDao().initiateGetGroupById(1).toString())
+        Log.d("ROOM_TEST", stepEducationDatabase.getStudentDao().initiateGetStudentById(8).toString())
+        Log.d("ROOM_TEST", stepEducationDatabase.getStudentsGroupDao().initiateGetGroupById(9).toString())
 
         stepEducationDatabase.getStudentDao().initiateDeleteStudentById(1)
         stepEducationDatabase.getStudentsGroupDao().initiateDeleteGroupById(1)

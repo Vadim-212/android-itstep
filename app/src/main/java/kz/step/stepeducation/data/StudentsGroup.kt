@@ -5,12 +5,12 @@ import androidx.room.PrimaryKey
 
 @Entity
 class StudentsGroup {
-    @PrimaryKey
-    var id: Long = 0
+    @PrimaryKey(autoGenerate = true)
+    var id: Int = 0
 
     var title: String = ""
 
     override fun toString(): String {
-        return "StudentsGroup(title='${title}')"
+        return "StudentsGroup(id=$id,title='$title')"
     }
 }

@@ -13,14 +13,14 @@ interface StudentsGroupDao {
     fun initiateInsertGroupsList(groups: List<StudentsGroup>)
 
     @Query("SELECT * FROM studentsgroup")
-    fun initiateGetGroups(): ArrayList<StudentsGroup>
+    fun initiateGetGroups(): List<StudentsGroup>
 
     @Query("SELECT * FROM studentsgroup WHERE id = :id")
-    fun initiateGetGroupById(id: Long): StudentsGroup
+    fun initiateGetGroupById(id: Int): StudentsGroup
 
     @Query("DELETE FROM studentsgroup")
     fun initiateDeleteGroups()
 
     @Query("DELETE FROM studentsgroup WHERE id = :id")
-    fun initiateDeleteGroupById(id: Long)
+    fun initiateDeleteGroupById(id: Int)
 }
