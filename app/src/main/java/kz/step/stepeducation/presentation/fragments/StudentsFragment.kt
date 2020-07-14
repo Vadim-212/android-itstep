@@ -1,5 +1,6 @@
 package kz.step.stepeducation.presentation.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -13,10 +14,16 @@ import androidx.room.Room
 import kotlinx.android.synthetic.main.fragment_students.*
 import kz.step.stepeducation.R
 import kz.step.stepeducation.data.StepEducationDatabase
+import kz.step.stepeducation.di.component.DaggerRepositoryComponent
+import kz.step.stepeducation.di.component.DaggerUseCaseComponent
+import kz.step.stepeducation.di.module.RepositoryModule
+import kz.step.stepeducation.di.module.UseCaseModule
 import kz.step.stepeducation.presentation.adapter.StudentsAdapter
 import kz.step.stepeducation.domain.Student
+import kz.step.stepeducation.domain.StudentsSortUseCase
 import kz.step.stepeducation.presentation.contract.StudentsFragmentContract
 import kz.step.stepeducation.presentation.presenters.StudentsFragmentPresenter
+import javax.inject.Inject
 
 
 class StudentsFragment : Fragment(), StudentsFragmentContract.View, View.OnClickListener {
@@ -26,6 +33,8 @@ class StudentsFragment : Fragment(), StudentsFragmentContract.View, View.OnClick
     var studentsAdapter: StudentsAdapter? = null
     lateinit var presenter: StudentsFragmentPresenter
     var studentToAdd: Student? = null
+
+    @Inject lateinit var studentsSortUseCase: StudentsSortUseCase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,6 +61,21 @@ class StudentsFragment : Fragment(), StudentsFragmentContract.View, View.OnClick
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+//        studentsSortUseCase = DaggerUseCaseComponent
+//            .builder()
+//            .useCaseModule(UseCaseModule())
+//            .build()
+//            .initiateReturnStudentsUseCase()
+
+//        DaggerUseCaseComponent
+//            .builder()
+//            .useCaseModule(UseCaseModule())
+//            .build()
+//            .inject(this)
+
+        DaggerRepositoryComponent.builder().repositoryModule(RepositoryModule(this)).build().inject(this)
+
         initializeViews()
         initializePresenter()
         initializeLayoutManager()
