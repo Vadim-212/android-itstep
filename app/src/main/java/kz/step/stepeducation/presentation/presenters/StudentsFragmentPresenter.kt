@@ -22,7 +22,6 @@ class StudentsFragmentPresenter : StudentsFragmentContract.Presenter {
     }
 
     override fun initializeData() {
-        context?.assets
         view?.processData(students.apply {
             add(
                 Student(

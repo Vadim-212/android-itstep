@@ -1,6 +1,5 @@
 package kz.step.stepeducation.presentation.fragments
 
-import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -10,19 +9,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.room.Room
 import kotlinx.android.synthetic.main.fragment_students.*
 import kz.step.stepeducation.R
-import kz.step.stepeducation.data.StepEducationDatabase
+import kz.step.stepeducation.data.Currency
+import kz.step.stepeducation.data.api.APIConnection
 import kz.step.stepeducation.di.component.DaggerRepositoryComponent
-import kz.step.stepeducation.di.component.DaggerUseCaseComponent
 import kz.step.stepeducation.di.module.RepositoryModule
-import kz.step.stepeducation.di.module.UseCaseModule
 import kz.step.stepeducation.presentation.adapter.StudentsAdapter
 import kz.step.stepeducation.domain.Student
 import kz.step.stepeducation.domain.StudentsSortUseCase
 import kz.step.stepeducation.presentation.contract.StudentsFragmentContract
 import kz.step.stepeducation.presentation.presenters.StudentsFragmentPresenter
+import retrofit2.Call
+import retrofit2.Response
 import javax.inject.Inject
 
 
@@ -75,6 +74,21 @@ class StudentsFragment : Fragment(), StudentsFragmentContract.View, View.OnClick
 //            .inject(this)
 
         DaggerRepositoryComponent.builder().repositoryModule(RepositoryModule(this)).build().inject(this)
+
+        val call = APIConnection().initializeAPI()?.currencies()
+        call?.enqueue(object : retrofit2.Callback<Currency>{
+            override fun onFailure(call: Call<Currency>, t: Throwable) {
+                Log.d("RETROFIT_FAILURE", t.message)
+            }
+
+            override fun onResponse(call: Call<Currency>, response: Response<Currency>) {
+                if(response.isSuccessful) {
+                    Log.d("RETROFIT_SUCCESS", response.body().toString())
+                } else {
+                    Log.d("RETROFIT_FAILURE", response.errorBody().toString())
+                }
+            }
+        })
 
         initializeViews()
         initializePresenter()

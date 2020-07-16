@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.activity_students.*
 import kz.step.stepeducation.R
 import kz.step.stepeducation.domain.Student
+import kz.step.stepeducation.presentation.fragments.CurrenciesFragment
 import kz.step.stepeducation.presentation.fragments.StudentsFragment
 import kz.step.stepeducation.presentation.fragments.ViewPagerFragment
 import java.nio.BufferUnderflowException
@@ -39,9 +40,9 @@ class StudentsActivity : AppCompatActivity() {
             fragmentArguments!!.putParcelable("student", intent.extras?.getParcelable<Student>("student"))
         }
 
-        initializeDefaultFragment()
+        //initializeDefaultFragment()
 
-        //displayFragment(StudentInformationFragment())
+        displayFragment(CurrenciesFragment())
     }
 
     private fun initializeViews() {
