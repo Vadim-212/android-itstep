@@ -3,17 +3,22 @@ package kz.step.stepeducation.presentation.activity
 import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.RecognizerIntent
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import kotlinx.android.synthetic.main.activity_speech_recognizer.*
 import kz.step.stepeducation.R
+import kz.step.stepeducation.domain.usecase.SpeechRecognizerHelper
 import java.util.*
 
 class SpeechRecognizerActivity : AppCompatActivity() {
     private val REQUEST_CODE_SPEECH_RECOGNIZER = 1
+    val speechRecognizerHelper = SpeechRecognizerHelper(this, REQUEST_CODE_SPEECH_RECOGNIZER)
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_speech_recognizer)
@@ -21,21 +26,10 @@ class SpeechRecognizerActivity : AppCompatActivity() {
         initializeListeners()
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     fun initializeListeners() {
         button_activity_speech_recognizer_recognize?.setOnClickListener {
-            startSpeechRecognize()
-        }
-    }
-
-    private fun startSpeechRecognize() {
-        val recognizeIntent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
-        recognizeIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
-        recognizeIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault())
-        try {
-            startActivityForResult(recognizeIntent, REQUEST_CODE_SPEECH_RECOGNIZER)
-        } catch(e: ActivityNotFoundException) {
-            e.printStackTrace()
-            Toast.makeText(this, "Ваше устройство не поддерживает разпознавание речи.", Toast.LENGTH_SHORT).show()
+            speechRecognizerHelper.startSpeechRecognize()
         }
     }
 

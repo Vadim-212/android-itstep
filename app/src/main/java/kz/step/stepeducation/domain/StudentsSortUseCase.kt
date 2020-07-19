@@ -1,20 +1,25 @@
 package kz.step.stepeducation.domain
 
+import kz.step.stepeducation.domain.usecase.function.sort.SortByMarkUseCase
+import kz.step.stepeducation.domain.usecase.function.sort.SortByNameUseCase
+import kz.step.stepeducation.domain.usecase.function.sort.SortByQueryUseCase
+import kz.step.stepeducation.domain.usecase.function.sort.SortByRandomUseCase
+
 class StudentsSortUseCase {
     fun initiateSortStudentsByName(students: ArrayList<Student>) : ArrayList<Student> {
-        return students.apply { sortBy { student -> student.name } }
+        return SortByNameUseCase.initiateSortByName(students)
     }
 
     fun initiateSortStudentsRandom(students: ArrayList<Student>) : ArrayList<Student> {
-        return students.apply { shuffle() }
+        return SortByRandomUseCase.initiateSortRandom(students)
     }
 
     fun initiateSortStudentsByMark(students: ArrayList<Student>) : ArrayList<Student> {
-        return students.apply { sortByDescending { student -> student.mark } }
+        return SortByMarkUseCase.initiateSortByMark(students)
     }
 
     fun initiateSortStudentsByQuery(students: ArrayList<Student>, query: String) : ArrayList<Student> {
-        return students.apply { filter { student -> student.name.toLowerCase().contains(query.toLowerCase()) || student.name.toLowerCase() == query.toLowerCase() } }
+        return SortByQueryUseCase.initiateSortByQuery(students, query)
     }
 
     fun initiateTopThreeStudentsByMark(students: ArrayList<Student>) : ArrayList<Student> {

@@ -10,9 +10,11 @@ import android.provider.MediaStore
 import androidx.annotation.RequiresApi
 import kotlinx.android.synthetic.main.activity_photo.*
 import kz.step.stepeducation.R
+import kz.step.stepeducation.domain.usecase.CameraHelper
 
 class PhotoActivity : AppCompatActivity() {
     val REQUEST_IMAGE_CAPTURE = 1
+    val cameraHelper = CameraHelper(this, REQUEST_IMAGE_CAPTURE)
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,12 +26,7 @@ class PhotoActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.M)
     fun initializeListeners() {
         button_activity_photo_take_image!!.setOnClickListener {
-            if(checkSelfPermission(android.Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
-                val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-                startActivityForResult(cameraIntent, 1)
-            } else {
-                requestPermissions(Array<String>(1){android.Manifest.permission.CAMERA}, 101)
-            }
+            cameraHelper.startCamera()
         }
     }
 
