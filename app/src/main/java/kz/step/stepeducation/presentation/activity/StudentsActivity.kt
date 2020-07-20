@@ -40,9 +40,9 @@ class StudentsActivity : AppCompatActivity() {
             fragmentArguments!!.putParcelable("student", intent.extras?.getParcelable<Student>("student"))
         }
 
-        //initializeDefaultFragment()
+        initializeDefaultFragment()
 
-        displayFragment(CurrenciesFragment())
+        //displayFragment(CurrenciesFragment())
     }
 
     private fun initializeViews() {

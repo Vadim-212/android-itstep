@@ -3,6 +3,8 @@ package kz.step.stepeducation.data
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Transaction
+
 
 @Dao
 interface StudentsGroupDao {
@@ -23,4 +25,12 @@ interface StudentsGroupDao {
 
     @Query("DELETE FROM studentsgroup WHERE id = :id")
     fun initiateDeleteGroupById(id: Int)
+
+    @Transaction
+    @Query("SELECT * FROM studentsgroup")
+    fun initiateLoadStudentsGroup(): List<GroupWithStudents>?
+
+    @Transaction
+    @Query("SELECT * FROM studentsgroup WHERE id = :groupId")
+    fun initiateGetStudentsGroupById(groupId: Int?): GroupWithStudents?
 }

@@ -60,4 +60,6 @@
     <string name="activity_registered_user_info_edittext_dob_hint">Дата рождения</string>
     <string name="activity_user_registration_edittext_group_hint">Группа</string>
     <string name="activity_user_registration_edittext_mark_hint">Оценка</string>
+    <string name="viewholder_students_group_title_header">Наименование класса</string>
+    <string name="viewholder_students_group_students_count_header">Количество студентов</string>
 </resources>

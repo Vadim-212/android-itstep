@@ -5,12 +5,12 @@ import androidx.room.ForeignKey
 import androidx.room.ForeignKey.CASCADE
 import androidx.room.PrimaryKey
 
-//@Entity(foreignKeys = arrayOf(ForeignKey(
-//    entity = StudentsGroup::class,
-//    parentColumns = arrayOf("id"),
-//    childColumns = arrayOf("groupId"),
-//    onDelete = CASCADE)))
-@Entity
+@Entity(foreignKeys = arrayOf(ForeignKey(
+    entity = StudentsGroup::class,
+    parentColumns = arrayOf("id"),
+    childColumns = arrayOf("groupId"),
+    onDelete = CASCADE)))
+//@Entity
 class Student {
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0
@@ -19,8 +19,12 @@ class Student {
 
     var groupId: Int = 0
 
+    var description: String = ""
+
+    var mark: Float = 0F
+
     override fun toString(): String {
-        return "Student(id=$id,name='$name',groupId=$groupId)"
+        return "Student(id=$id,name='$name',groupId=$groupId,description=$description,mark=$mark)"
 //        var returnString = "Student(id=$id,"
 //        if(!name.isNullOrEmpty())
 //            returnString += "name='$name',"

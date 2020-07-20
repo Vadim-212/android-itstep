@@ -12,12 +12,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_students.*
 import kz.step.stepeducation.R
 import kz.step.stepeducation.data.Currency
+import kz.step.stepeducation.data.GroupWithStudents
+import kz.step.stepeducation.data.StudentsGroup
 import kz.step.stepeducation.data.api.APIConnection
 import kz.step.stepeducation.di.component.DaggerRepositoryComponent
 import kz.step.stepeducation.di.module.RepositoryModule
 import kz.step.stepeducation.presentation.adapter.StudentsAdapter
 import kz.step.stepeducation.domain.Student
 import kz.step.stepeducation.domain.StudentsSortUseCase
+import kz.step.stepeducation.presentation.adapter.GroupWithStudentsAdapter
 import kz.step.stepeducation.presentation.contract.StudentsFragmentContract
 import kz.step.stepeducation.presentation.presenters.StudentsFragmentPresenter
 import retrofit2.Call
@@ -32,6 +35,8 @@ class StudentsFragment : Fragment(), StudentsFragmentContract.View, View.OnClick
     var studentsAdapter: StudentsAdapter? = null
     lateinit var presenter: StudentsFragmentPresenter
     var studentToAdd: Student? = null
+    var groups: ArrayList<GroupWithStudents> = ArrayList()
+    var groupsAdapter: GroupWithStudentsAdapter? = null
 
     @Inject lateinit var studentsSortUseCase: StudentsSortUseCase
 
@@ -75,27 +80,30 @@ class StudentsFragment : Fragment(), StudentsFragmentContract.View, View.OnClick
 
         DaggerRepositoryComponent.builder().repositoryModule(RepositoryModule(this)).build().inject(this)
 
-        val call = APIConnection().initializeAPI()?.currencies()
-        call?.enqueue(object : retrofit2.Callback<Currency>{
-            override fun onFailure(call: Call<Currency>, t: Throwable) {
-                Log.d("RETROFIT_FAILURE", t.message)
-            }
-
-            override fun onResponse(call: Call<Currency>, response: Response<Currency>) {
-                if(response.isSuccessful) {
-                    Log.d("RETROFIT_SUCCESS", response.body().toString())
-                } else {
-                    Log.d("RETROFIT_FAILURE", response.errorBody().toString())
-                }
-            }
-        })
+//        val call = APIConnection().initializeAPI()?.currencies()
+//        call?.enqueue(object : retrofit2.Callback<Currency>{
+//            override fun onFailure(call: Call<Currency>, t: Throwable) {
+//                Log.d("RETROFIT_FAILURE", t.message)
+//            }
+//
+//            override fun onResponse(call: Call<Currency>, response: Response<Currency>) {
+//                if(response.isSuccessful) {
+//                    Log.d("RETROFIT_SUCCESS", response.body().toString())
+//                } else {
+//                    Log.d("RETROFIT_FAILURE", response.errorBody().toString())
+//                }
+//            }
+//        })
 
         initializeViews()
         initializePresenter()
         initializeLayoutManager()
-        initializeAdapter()
+        presenter.initiazeDataRoomGroupWithStudents()
+        //initializeAdapter()
+        initializeGroupsAdapter()
         initializeListeners()
-        presenter.initializeData()
+        //presenter.initializeData()
+
 
         if(studentToAdd != null) {
             presenter.initiateAddStudent(studentToAdd!!)
@@ -154,6 +162,19 @@ class StudentsFragment : Fragment(), StudentsFragmentContract.View, View.OnClick
 
     override fun initializeViews() {
         recyclerview_fragment_students?.visibility = View.VISIBLE
+
+
+        button_fragment_students_filtration_by_name.visibility = View.INVISIBLE
+
+        button_fragment_students_filtration_by_mark.visibility = View.INVISIBLE
+
+        button_fragment_students_random_filtration.visibility = View.INVISIBLE
+
+        button_fragment_students_clear_query.visibility = View.INVISIBLE
+
+        button_fragment_students_top_three_by_mark.visibility = View.INVISIBLE
+
+        edittext_fragment_students_search_query.visibility = View.INVISIBLE
     }
 
     override fun initializeLayoutManager() {
@@ -165,13 +186,24 @@ class StudentsFragment : Fragment(), StudentsFragmentContract.View, View.OnClick
         recyclerview_fragment_students?.adapter = studentsAdapter
     }
 
+    override fun initializeGroupsAdapter() {
+        groupsAdapter = GroupWithStudentsAdapter(context, groups.toList(), this)
+        recyclerview_fragment_students?.adapter = groupsAdapter
+    }
+
     override fun initiateUpdateAdapter() {
-        studentsAdapter?.notifyDataSetChanged()
+        //studentsAdapter?.notifyDataSetChanged()
+        groupsAdapter?.notifyDataSetChanged()
     }
 
     override fun processData(students: ArrayList<Student>) {
         this.students.clear()
         this.students.addAll(students)
+    }
+
+    override fun processDataGroups(groupWithStudents: List<GroupWithStudents>) {
+        this.groups.clear()
+        this.groups.addAll(groupWithStudents)
     }
 
     override fun initializeArguments() { }

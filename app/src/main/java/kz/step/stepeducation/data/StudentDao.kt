@@ -24,6 +24,6 @@ interface StudentDao {
     @Query("DELETE FROM student WHERE id = :id")
     fun initiateDeleteStudentById(id: Int)
 
-    @Query("SELECT s.id, s.name, sg.title as groupName FROM student s JOIN studentsgroup sg ON s.groupId = sg.id")
+    @Query("SELECT s.id, s.name, s.description, s.mark, sg.title as groupName FROM student s JOIN studentsgroup sg ON s.groupId = sg.id")
     fun initiateGetStudentsWithGroups(): List<StudentWithGroup>
 }

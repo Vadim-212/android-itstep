@@ -2,7 +2,12 @@ package kz.step.stepeducation.presentation.presenters
 
 import android.content.Context
 import android.graphics.BitmapFactory
+import android.util.Log
+import androidx.room.Room
+import kz.step.stepeducation.data.StepEducationDatabase
+import kz.step.stepeducation.data.StudentsGroup
 import kz.step.stepeducation.domain.Student
+import kz.step.stepeducation.data.Student as StudentModel
 import kz.step.stepeducation.domain.StudentsSortUseCase
 import kz.step.stepeducation.presentation.contract.StudentsFragmentContract
 
@@ -11,10 +16,17 @@ class StudentsFragmentPresenter : StudentsFragmentContract.Presenter {
     var studentsSortUseCase: StudentsSortUseCase
     var students: ArrayList<Student> = ArrayList()
     var context: Context? = null
+    var stepEducationDatabase: StepEducationDatabase
 
     constructor(context: Context) {
         this.studentsSortUseCase = StudentsSortUseCase()
         this.context = context
+        stepEducationDatabase = Room.databaseBuilder(
+            context!!,
+            StepEducationDatabase::class.java,
+            "StepEducationDatabase").allowMainThreadQueries()
+//            .fallbackToDestructiveMigration() // TODO: потеря данных в базе данных, при использовании fallbackToDestructiveMigration()
+            .build()
     }
 
     override fun attach(view: StudentsFragmentContract.View) {
@@ -87,6 +99,25 @@ class StudentsFragmentPresenter : StudentsFragmentContract.Presenter {
     override fun initiateAddStudent(student: Student) {
         students.add(student)
         view?.processData(students)
+        view?.initiateUpdateAdapter()
+    }
+
+    fun initiazeDataRoomStudents(groupId: Int) {
+        var groupWithStudents = stepEducationDatabase.getStudentsGroupDao().initiateGetStudentsGroupById(groupId)
+        students.clear()
+        if (groupWithStudents != null) {
+            for(student in groupWithStudents.students) {
+                students.add(Student(student.name, student.description, groupWithStudents.group.title, student.mark, null))
+            }
+        }
+
+        view?.processData(students)
+        view?.initiateUpdateAdapter()
+    }
+
+    fun initiazeDataRoomGroupWithStudents() {
+        var groupList = stepEducationDatabase.getStudentsGroupDao().initiateLoadStudentsGroup()!!
+        view?.processDataGroups(groupList)
         view?.initiateUpdateAdapter()
     }
 
