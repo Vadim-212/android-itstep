@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.activity_students.*
 import kz.step.stepeducation.R
 import kz.step.stepeducation.domain.Student
 import kz.step.stepeducation.presentation.fragments.CurrenciesFragment
+import kz.step.stepeducation.presentation.fragments.MoviesFragment
 import kz.step.stepeducation.presentation.fragments.StudentsFragment
 import kz.step.stepeducation.presentation.fragments.ViewPagerFragment
 import java.nio.BufferUnderflowException
@@ -42,7 +43,7 @@ class StudentsActivity : AppCompatActivity() {
 
         initializeDefaultFragment()
 
-        //displayFragment(CurrenciesFragment())
+        //displayFragment(MoviesFragment())
     }
 
     private fun initializeViews() {

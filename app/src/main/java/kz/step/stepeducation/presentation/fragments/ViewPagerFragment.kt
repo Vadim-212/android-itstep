@@ -9,6 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import io.reactivex.Observable
+import io.reactivex.Observer
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.Disposable
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_viewpager.*
 import kz.step.stepeducation.R
 import kz.step.stepeducation.data.StepEducationDatabase
@@ -44,14 +49,14 @@ class ViewPagerFragment : Fragment(), View.OnClickListener {
         initializeViewPagerAdapter()
 //        initializeListeners()
 
-        var stepEducationDatabase = Room.databaseBuilder(
-            context!!,
-            StepEducationDatabase::class.java,
-            "StepEducationDatabase").allowMainThreadQueries()
-            .fallbackToDestructiveMigration() // TODO: потеря данных в базе данных, при использовании fallbackToDestructiveMigration()
-            .build()
+//        var stepEducationDatabase = Room.databaseBuilder(
+//            context!!,
+//            StepEducationDatabase::class.java,
+//            "StepEducationDatabase").allowMainThreadQueries()
+//            .fallbackToDestructiveMigration() // TODO: потеря данных в базе данных, при использовании fallbackToDestructiveMigration()
+//            .build()
 
-        stepEducationDatabase.getStudentsGroupDao().initiateInsertGroup(kz.step.stepeducation.data.StudentsGroup().apply {
+        /*stepEducationDatabase.getStudentsGroupDao().initiateInsertGroup(kz.step.stepeducation.data.StudentsGroup().apply {
             title = "Group A"
         })
         stepEducationDatabase.getStudentDao().initiateInsertStudent(kz.step.stepeducation.data.Student().apply {
@@ -80,7 +85,7 @@ class ViewPagerFragment : Fragment(), View.OnClickListener {
         stepEducationDatabase.getStudentsGroupDao().initiateDeleteGroupById(1)
 
         stepEducationDatabase.getStudentDao().initiateDeleteStudents()
-        stepEducationDatabase.getStudentsGroupDao().initiateDeleteGroups()
+        stepEducationDatabase.getStudentsGroupDao().initiateDeleteGroups()*/
 
 //        stepEducationDatabase.getStudentDao().initiateInsertStudent(kz.step.stepeducation.data.Student().apply {
 //            name = "John"
@@ -92,10 +97,32 @@ class ViewPagerFragment : Fragment(), View.OnClickListener {
 //            name = "Jack"
 //        })
 
-        var list = stepEducationDatabase.getStudentDao().initiateGetStudents()
+        //var list = stepEducationDatabase.getStudentDao().initiateGetStudents()
 
         if(newPosition != null) {
             viewpager_fragment_viewpager?.setCurrentItem(newPosition!!, true)
+        }
+
+        var observable = Observable.just(arrayOf("hello", "this", "is", "data"))
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+
+    }
+
+    class StringObserver: Observer<String> {
+        override fun onComplete() {
+            Log.d("OBSERVER", "COMPLETE")
+        }
+        override fun onSubscribe(d: Disposable) {
+            Log.d("OBSERVER", "SUBSCRIBE")
+        }
+
+        override fun onNext(t: String) {
+            Log.d("OBSERVER", "NEXT")
+        }
+
+        override fun onError(e: Throwable) {
+            Log.d("OBSERVER", "ERROR")
         }
     }
 

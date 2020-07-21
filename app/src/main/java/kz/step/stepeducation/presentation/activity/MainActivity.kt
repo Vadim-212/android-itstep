@@ -10,8 +10,12 @@ import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.room.ColumnInfo
+import androidx.room.Room
 import kz.step.stepeducation.*
 import kotlinx.android.synthetic.main.activity_main.*
+import kz.step.stepeducation.data.Movie
+import kz.step.stepeducation.data.StepEducationDatabase
 import kz.step.stepeducation.domain.HelperClass
 import kz.step.stepeducation.domain.StudentsSortUseCase
 import java.util.*
@@ -24,6 +28,25 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initializeListeners()
+//
+//        Room.databaseBuilder(
+//            this,
+//            StepEducationDatabase::class.java,
+//            "StepEducationDatabase").allowMainThreadQueries()
+//            .fallbackToDestructiveMigration() // TODO: потеря данных в базе данных, при использовании fallbackToDestructiveMigration()
+//            .build().getMovieDao().initiateInsertMovies(listOf(Movie().apply {
+//                title = "Movie 1"
+//                description = "This is the first movie"
+//                rate = 7.8F
+//        }, Movie().apply {
+//                title = "Movie 2"
+//                description = "This is the second movie"
+//                rate = 6.2F
+//            }, Movie().apply {
+//                title = "Movie 3"
+//                description = "This is the third movie"
+//                rate = 8.2F
+//            }))
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -114,6 +137,11 @@ class MainActivity : AppCompatActivity() {
 
         button_activity_main_goto_notes_activity?.setOnClickListener {
             val intent = Intent(this, NotesActivity::class.java)
+            startActivity(intent)
+        }
+
+        button_activity_main_goto_movies_activity?.setOnClickListener {
+            val intent = Intent(this, MoviesActivity::class.java)
             startActivity(intent)
         }
     }

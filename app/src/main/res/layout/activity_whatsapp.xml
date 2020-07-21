@@ -18,5 +18,4 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:text="@string/activity_whatsapp_button_send_message"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

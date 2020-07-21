@@ -101,9 +101,7 @@ class CurrenciesFragment: Fragment(), CurrenciesFragmentContract.View, View.OnCl
     }
 
     override fun initializeAdapter() {
-        Log.d("PRESENTER", presenter.toString())
-
-        currencyAdapter = CurrencyAdapter(context!!, currencies, presenter as CurrenciesFragmentPresenter)
+    currencyAdapter = CurrencyAdapter(context!!, currencies, presenter as CurrenciesFragmentPresenter)
         recyclerview_fragment_currencies?.adapter = currencyAdapter
     }
 

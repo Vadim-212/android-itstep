@@ -57,8 +57,19 @@
             android:layout_gravity="center"/>
 
         <Button
-            android:id="@+id/button_activity_main_open_camera"
+            android:id="@+id/button_activity_main_goto_movies_activity"
             app:layout_constraintTop_toBottomOf="@+id/button_activity_main_goto_notes_activity"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/activity_main_button_goto_movies_activity_text"
+            android:layout_width="150dp"
+            android:layout_height="55dp"
+            android:gravity="center"
+            android:layout_gravity="center"/>
+
+        <Button
+            android:id="@+id/button_activity_main_open_camera"
+            app:layout_constraintTop_toBottomOf="@+id/button_activity_main_goto_movies_activity"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:text="@string/activity_main_button_open_camera"
