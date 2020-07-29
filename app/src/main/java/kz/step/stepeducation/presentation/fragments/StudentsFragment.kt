@@ -21,6 +21,7 @@ import kz.step.stepeducation.presentation.adapter.StudentsAdapter
 import kz.step.stepeducation.domain.Student
 import kz.step.stepeducation.domain.StudentsSortUseCase
 import kz.step.stepeducation.presentation.adapter.GroupWithStudentsAdapter
+import kz.step.stepeducation.presentation.base.BaseFragment
 import kz.step.stepeducation.presentation.contract.StudentsFragmentContract
 import kz.step.stepeducation.presentation.presenters.StudentsFragmentPresenter
 import retrofit2.Call
@@ -28,7 +29,7 @@ import retrofit2.Response
 import javax.inject.Inject
 
 
-class StudentsFragment : Fragment(), StudentsFragmentContract.View, View.OnClickListener {
+class StudentsFragment : BaseFragment(), StudentsFragmentContract.View {
     var rootView: View? = null
     var students: ArrayList<Student> = ArrayList()
     var filteredStudentsList: ArrayList<Student> = ArrayList()

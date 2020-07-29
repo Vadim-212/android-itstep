@@ -25,10 +25,11 @@ import kotlinx.android.synthetic.main.activity_notes2.*
 import kotlinx.android.synthetic.main.fragment_create_note.*
 import kz.step.stepeducation.R
 import kz.step.stepeducation.data.Note
+import kz.step.stepeducation.presentation.base.BaseFragment
 import java.time.LocalDate
 
 
-class CreateNoteFragment : Fragment(), View.OnClickListener, DatePickerDialog.OnDateSetListener {
+class CreateNoteFragment : BaseFragment(), DatePickerDialog.OnDateSetListener {
     var rootView: View? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {

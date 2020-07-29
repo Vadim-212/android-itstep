@@ -19,6 +19,7 @@ import kz.step.stepeducation.di.module.CurrencyModule
 import kz.step.stepeducation.domain.CurrenciesUseCase
 import kz.step.stepeducation.domain.Currency
 import kz.step.stepeducation.presentation.adapter.CurrencyAdapter
+import kz.step.stepeducation.presentation.base.BaseFragment
 import kz.step.stepeducation.presentation.contract.CurrenciesFragmentContract
 import kz.step.stepeducation.presentation.presenters.CurrenciesFragmentPresenter
 import retrofit2.Call
@@ -26,7 +27,7 @@ import retrofit2.Response
 import java.util.ArrayList
 import javax.inject.Inject
 
-class CurrenciesFragment: Fragment(), CurrenciesFragmentContract.View, View.OnClickListener {
+class CurrenciesFragment: BaseFragment(), CurrenciesFragmentContract.View {
     var rootView: View? = null
     lateinit var presenter: CurrenciesFragmentContract.Presenter
     var currencyAdapter: CurrencyAdapter? = null
@@ -83,13 +84,9 @@ class CurrenciesFragment: Fragment(), CurrenciesFragmentContract.View, View.OnCl
 
     }
 
-    override fun initializeListeners() {
-        TODO("Not yet implemented")
-    }
+    override fun initializeListeners() { }
 
-    override fun onClick(v: View?) {
-        TODO("Not yet implemented")
-    }
+    override fun onClick(v: View?) { }
 
     override fun initializePresenter() {
         presenter = CurrenciesFragmentPresenter(context!!)

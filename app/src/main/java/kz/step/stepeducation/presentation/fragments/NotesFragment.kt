@@ -15,10 +15,11 @@ import kotlinx.android.synthetic.main.fragment_notes.*
 import kz.step.stepeducation.R
 import kz.step.stepeducation.data.Note
 import kz.step.stepeducation.presentation.adapter.NotesAdapter
+import kz.step.stepeducation.presentation.base.BaseFragment
 import kz.step.stepeducation.presentation.contract.NotesFragmentContract
 import kz.step.stepeducation.presentation.presenters.NotesFragmentPresenter
 
-class NotesFragment : Fragment(), NotesFragmentContract.View, View.OnClickListener {
+class NotesFragment : BaseFragment(), NotesFragmentContract.View {
     var rootView: View? = null
     var notes: ArrayList<Note> = ArrayList()
     var notesAdapter: NotesAdapter? = null

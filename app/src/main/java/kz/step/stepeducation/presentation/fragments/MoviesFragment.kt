@@ -16,11 +16,12 @@ import kotlinx.android.synthetic.main.fragment_movies.*
 import kz.step.stepeducation.R
 import kz.step.stepeducation.data.Movie
 import kz.step.stepeducation.presentation.adapter.MoviesAdapter
+import kz.step.stepeducation.presentation.base.BaseFragment
 import kz.step.stepeducation.presentation.contract.MoviesFragmentContract
 import kz.step.stepeducation.presentation.presenters.MoviesFragmentPresenter
 import kz.step.stepeducation.presentation.utils.SortTypes
 
-class MoviesFragment(val sortType: SortTypes): Fragment(), MoviesFragmentContract.View {
+class MoviesFragment(val sortType: SortTypes): BaseFragment(), MoviesFragmentContract.View {
     var rootView: View? = null
     var presenter: MoviesFragmentPresenter? = null
     var moviesAdapter: MoviesAdapter? = null
@@ -37,6 +38,8 @@ class MoviesFragment(val sortType: SortTypes): Fragment(), MoviesFragmentContrac
         rootView = LayoutInflater.from(context).inflate(R.layout.fragment_movies, container, false)
         return rootView
     }
+
+    override fun onClick(v: View?) { }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -57,7 +60,7 @@ class MoviesFragment(val sortType: SortTypes): Fragment(), MoviesFragmentContrac
 
     override fun initializeLayoutManager() {
         recyclerview_fragment_movies?.layoutManager = GridLayoutManager(context, 2)
-        recyclerview_fragment_movies.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.HORIZONTAL));
+        recyclerview_fragment_movies.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.HORIZONTAL))
     }
 
     override fun initializeAdapter() {

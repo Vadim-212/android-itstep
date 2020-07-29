@@ -19,8 +19,9 @@ import kz.step.stepeducation.R
 import kz.step.stepeducation.data.StepEducationDatabase
 import kz.step.stepeducation.domain.Student
 import kz.step.stepeducation.presentation.adapter.ViewPagerStudentsAdapter
+import kz.step.stepeducation.presentation.base.BaseFragment
 
-class ViewPagerFragment : Fragment(), View.OnClickListener {
+class ViewPagerFragment : BaseFragment() {
     var rootView: View? = null
     val students: ArrayList<Student> = ArrayList()
     var newPosition: Int? = null

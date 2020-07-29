@@ -8,13 +8,14 @@ import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.activity_students.*
 import kz.step.stepeducation.R
 import kz.step.stepeducation.domain.Student
+import kz.step.stepeducation.presentation.base.BaseActivity
 import kz.step.stepeducation.presentation.fragments.CurrenciesFragment
 import kz.step.stepeducation.presentation.fragments.MoviesFragment
 import kz.step.stepeducation.presentation.fragments.StudentsFragment
 import kz.step.stepeducation.presentation.fragments.ViewPagerFragment
 import java.nio.BufferUnderflowException
 
-class StudentsActivity : AppCompatActivity() {
+class StudentsActivity : BaseActivity() {
     //var buttonSortByName: Button? = null
     //var buttonSortRandom: Button? = null
     //var listViewStudents: ListView? = null
@@ -79,14 +80,14 @@ class StudentsActivity : AppCompatActivity() {
     }
 
 
-    fun initializeDefaultFragment(){
+    override fun initializeDefaultFragment(){
         if(currentFragment == null){
             currentFragment = StudentsFragment()
             displayFragment(currentFragment!!)
         }
     }
 
-    fun displayFragment(fragment: Fragment) {
+    override fun displayFragment(fragment: Fragment) {
         if(fragmentArguments != null) {
             fragment.arguments = fragmentArguments
         }
@@ -96,10 +97,14 @@ class StudentsActivity : AppCompatActivity() {
         fragmentTransaction.add(
             R.id.relativelayout_activity_students_fragment_container,
             fragment,
-            fragment.javaClass.name ?: "")
+            fragment.javaClass.name)
 
         fragmentTransaction.addToBackStack("Name")
         fragmentTransaction.commit()
 
+    }
+
+    override fun getActivityInstance(): BaseActivity {
+        return this
     }
 }

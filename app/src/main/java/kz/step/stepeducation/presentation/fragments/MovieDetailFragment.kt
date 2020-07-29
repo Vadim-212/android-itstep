@@ -9,10 +9,11 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_movie_detail.*
 import kz.step.stepeducation.R
 import kz.step.stepeducation.data.Movie
+import kz.step.stepeducation.presentation.base.BaseFragment
 import kz.step.stepeducation.presentation.contract.MoviesFragmentContract
 import java.io.ByteArrayInputStream
 
-class MovieDetailFragment : Fragment() {
+class MovieDetailFragment : BaseFragment() {
     var rootView: View? = null
     var movie: Movie? = null
 
@@ -39,6 +40,8 @@ class MovieDetailFragment : Fragment() {
 
         return rootView
     }
+
+    override fun onClick(v: View?) { }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

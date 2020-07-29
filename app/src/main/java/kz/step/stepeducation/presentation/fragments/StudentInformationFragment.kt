@@ -9,9 +9,10 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_student_information.*
 import kz.step.stepeducation.R
 import kz.step.stepeducation.domain.Student
+import kz.step.stepeducation.presentation.base.BaseFragment
 import kz.step.stepeducation.presentation.utils.Constants
 
-class StudentInformationFragment : Fragment() {
+class StudentInformationFragment : BaseFragment() {
     var rootView: View? = null
     private var student: Student? = null
 
@@ -34,6 +35,8 @@ class StudentInformationFragment : Fragment() {
 
         return rootView
     }
+
+    override fun onClick(v: View?) { }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
