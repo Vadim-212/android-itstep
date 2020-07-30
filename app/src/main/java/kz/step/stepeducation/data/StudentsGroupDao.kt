@@ -33,4 +33,7 @@ interface StudentsGroupDao {
     @Transaction
     @Query("SELECT * FROM studentsgroup WHERE id = :groupId")
     fun initiateGetStudentsGroupById(groupId: Int?): GroupWithStudents?
+
+    @Query("SELECT * FROM student WHERE groupId = :groupId")
+    fun initiateGetStudentsByGroupId(groupId: Int): List<Student>
 }

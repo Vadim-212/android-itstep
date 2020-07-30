@@ -75,6 +75,10 @@ class DatabaseUseCase {
         return stepEducationDatabase.getStudentsGroupDao().initiateGetStudentsGroupById(groupId)
     }
 
+    fun initiateGetStudentsByGroupId(groupId: Int): List<Student> {
+        return stepEducationDatabase.getStudentsGroupDao().initiateGetStudentsByGroupId(groupId)
+    }
+
     fun initiateInsertMovie(movie: Movie) {
         stepEducationDatabase.getMovieDao().initiateInsertMovie(movie)
     }

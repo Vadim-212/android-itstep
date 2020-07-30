@@ -10,6 +10,6 @@ class GroupWithStudents {
     lateinit var students: List<Student>
 
     override fun toString(): String {
-        return "GroupWithStudents(group=${group.toString()},studentsListSize=${students.size})"
+        return "GroupWithStudents(group=$group,studentsListSize=${students.size})"
     }
 }
