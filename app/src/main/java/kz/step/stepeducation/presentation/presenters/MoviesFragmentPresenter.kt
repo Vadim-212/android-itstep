@@ -4,25 +4,24 @@ import android.content.Context
 import androidx.room.Room
 import kz.step.stepeducation.data.Movie
 import kz.step.stepeducation.data.StepEducationDatabase
+import kz.step.stepeducation.di.component.DaggerDatabaseComponent
+import kz.step.stepeducation.di.module.DatabaseModule
+import kz.step.stepeducation.domain.usecase.DatabaseUseCase
 import kz.step.stepeducation.domain.usecase.function.sort.SortByRandomUseCase
 import kz.step.stepeducation.domain.usecase.function.sort.SortByTitleUseCase
 import kz.step.stepeducation.presentation.contract.MoviesFragmentContract
 import kz.step.stepeducation.presentation.utils.SortTypes
+import javax.inject.Inject
 
 class MoviesFragmentPresenter: MoviesFragmentContract.Presenter {
     var view: MoviesFragmentContract.View? = null
     var context: Context
     var movies: ArrayList<Movie> = ArrayList()
-    var stepEducationDatabase: StepEducationDatabase
+    @Inject lateinit var databaseUseCase: DatabaseUseCase
 
     constructor(context: Context) {
         this.context = context
-        stepEducationDatabase = Room.databaseBuilder(
-            context,
-            StepEducationDatabase::class.java,
-            "StepEducationDatabase").allowMainThreadQueries()
-//            .fallbackToDestructiveMigration() // TODO: потеря данных в базе данных, при использовании fallbackToDestructiveMigration()
-            .build()
+        DaggerDatabaseComponent.builder().databaseModule(DatabaseModule(context)).build().inject(this)
     }
 
     override fun attach(view: MoviesFragmentContract.View) {
@@ -31,7 +30,7 @@ class MoviesFragmentPresenter: MoviesFragmentContract.Presenter {
 
     override fun initializeData() {
         movies.clear()
-        movies.addAll(stepEducationDatabase.getMovieDao().initiateGetMovies())
+        movies.addAll(databaseUseCase.initiateGetMovies())
         view?.proccessData(movies)
         view?.initializeUpdateAdapter()
     }

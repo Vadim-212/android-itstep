@@ -6,27 +6,26 @@ import android.util.Log
 import androidx.room.Room
 import kz.step.stepeducation.data.StepEducationDatabase
 import kz.step.stepeducation.data.StudentsGroup
+import kz.step.stepeducation.di.component.DaggerDatabaseComponent
+import kz.step.stepeducation.di.module.DatabaseModule
 import kz.step.stepeducation.domain.Student
 import kz.step.stepeducation.data.Student as StudentModel
 import kz.step.stepeducation.domain.StudentsSortUseCase
+import kz.step.stepeducation.domain.usecase.DatabaseUseCase
 import kz.step.stepeducation.presentation.contract.StudentsFragmentContract
+import javax.inject.Inject
 
 class StudentsFragmentPresenter : StudentsFragmentContract.Presenter {
     var view: StudentsFragmentContract.View? = null
     var studentsSortUseCase: StudentsSortUseCase
     var students: ArrayList<Student> = ArrayList()
     var context: Context? = null
-    var stepEducationDatabase: StepEducationDatabase
+    @Inject lateinit var databaseUseCase: DatabaseUseCase
 
     constructor(context: Context) {
         this.studentsSortUseCase = StudentsSortUseCase()
         this.context = context
-        stepEducationDatabase = Room.databaseBuilder(
-            context!!,
-            StepEducationDatabase::class.java,
-            "StepEducationDatabase").allowMainThreadQueries()
-//            .fallbackToDestructiveMigration() // TODO: потеря данных в базе данных, при использовании fallbackToDestructiveMigration()
-            .build()
+        DaggerDatabaseComponent.builder().databaseModule(DatabaseModule(context)).build().inject(this)
     }
 
     override fun attach(view: StudentsFragmentContract.View) {
@@ -103,7 +102,7 @@ class StudentsFragmentPresenter : StudentsFragmentContract.Presenter {
     }
 
     fun initiazeDataRoomStudents(groupId: Int) {
-        var groupWithStudents = stepEducationDatabase.getStudentsGroupDao().initiateGetStudentsGroupById(groupId)
+        var groupWithStudents = databaseUseCase.initiateGetStudentsGroupById(groupId)
         students.clear()
         if (groupWithStudents != null) {
             for(student in groupWithStudents.students) {
@@ -116,7 +115,7 @@ class StudentsFragmentPresenter : StudentsFragmentContract.Presenter {
     }
 
     fun initiazeDataRoomGroupWithStudents() {
-        var groupList = stepEducationDatabase.getStudentsGroupDao().initiateLoadStudentsGroup()!!
+        var groupList = databaseUseCase.initiateLoadStudentsGroup()!!
         view?.processDataGroups(groupList)
         view?.initiateUpdateAdapter()
     }
