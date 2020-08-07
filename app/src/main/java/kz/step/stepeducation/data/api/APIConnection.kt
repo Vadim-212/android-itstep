@@ -19,7 +19,7 @@ class APIConnection {
     }
 
     fun initializeAPI(): APIInterface {
-        return initializeRetrofit()?.create(APIInterface::class.java)
+        return initializeRetrofit().create(APIInterface::class.java)
     }
 
     fun initializeOkHttpClient(): OkHttpClient {

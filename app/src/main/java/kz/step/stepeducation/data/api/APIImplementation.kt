@@ -6,19 +6,21 @@ import retrofit2.Call
 import retrofit2.Response
 
 class APIImplementation: APIInterface {
+    var api: APIInterface
+
     constructor() {
-        var api = APIConnection().initializeAPI()
+        api = APIConnection().initializeAPI()
     }
 
     override fun currencies(): Call<Currency> {
-        TODO("Not yet implemented")
+        return api.currencies()
     }
 
     override fun currencies(base: String): Call<Currency> {
-        TODO("Not yet implemented")
+        return api.currencies(base)
     }
 
     override fun initiateGetCurrencies(): Observable<Response<Currency>> {
-        TODO("Not yet implemented")
+        return api.initiateGetCurrencies()
     }
 }

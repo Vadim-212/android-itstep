@@ -32,7 +32,7 @@ class CurrenciesFragment: BaseFragment(), CurrenciesFragmentContract.View {
     lateinit var presenter: CurrenciesFragmentContract.Presenter
     var currencyAdapter: CurrencyAdapter? = null
     val currencies: ArrayList<Currency> = ArrayList()
-    var currency: kz.step.stepeducation.data.Currency? = null
+    //var currency: kz.step.stepeducation.data.Currency? = null
     @Inject lateinit var currenciesUseCase: CurrenciesUseCase
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,22 +65,7 @@ class CurrenciesFragment: BaseFragment(), CurrenciesFragmentContract.View {
         initializeAdapter()
         //initializeListeners()
         presenter.initializeData()
-        // retrofit
-        val call = APIConnection().initializeAPI().currencies()
-        call.enqueue(object : retrofit2.Callback<kz.step.stepeducation.data.Currency> {
-            override fun onFailure(call: Call<kz.step.stepeducation.data.Currency>, t: Throwable) {
-                Toast.makeText(context, "Can't get currency", Toast.LENGTH_SHORT).show()
-            }
 
-            override fun onResponse(
-                call: Call<kz.step.stepeducation.data.Currency>,
-                response: Response<kz.step.stepeducation.data.Currency>
-            ) {
-                currency = response.body()
-                textview_fragment_currencies_base_currency?.setText(currency?.getBase())
-                presenter.initiateCurrencyToCurrenciesArray(currency!!)
-            }
-        })
 
     }
 
@@ -89,7 +74,7 @@ class CurrenciesFragment: BaseFragment(), CurrenciesFragmentContract.View {
     override fun onClick(v: View?) { }
 
     override fun initializePresenter() {
-        presenter = CurrenciesFragmentPresenter(context!!)
+        presenter = CurrenciesFragmentPresenter(context?.applicationContext!!)
         presenter.attach(this)
     }
 
