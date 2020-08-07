@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_new_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".presentation.activity.MoviesActivity"></activity>
+        <activity android:name=".presentation.activity.RegistrationSimulatorActivity"></activity>
+        <activity android:name=".presentation.activity.MoviesActivity" />
         <activity android:name=".presentation.activity.NotesActivity" />
         <activity android:name=".presentation.activity.RegisteredUserInfoActivity" />
         <activity android:name=".presentation.activity.UserRegistrationActivity" />

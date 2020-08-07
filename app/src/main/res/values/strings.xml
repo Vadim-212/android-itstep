@@ -63,4 +63,9 @@
     <string name="viewholder_students_group_title_header">Наименование класса</string>
     <string name="viewholder_students_group_students_count_header">Количество студентов</string>
     <string name="activity_main_button_goto_movies_activity_text">Перейти к фильмам</string>
+    <string name="activity_registration_simulator_edittext_name_hint">Имя</string>
+    <string name="activity_registration_simulator_edittext_email_hint">Email</string>
+    <string name="activity_registration_simulator_edittext_password_hint">Пароль</string>
+    <string name="activity_registration_simulator_edittext_repeat_password_hint">Повтор пароля</string>
+    <string name="activity_registration_simulator_button_registration">Регистрация</string>
 </resources>
